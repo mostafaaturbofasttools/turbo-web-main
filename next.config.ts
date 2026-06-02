@@ -25,7 +25,13 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   experimental: {
-    optimizePackageImports: ["lucide-react", "@radix-ui/react-accordion"],
+    inlineCss: true,
+    optimizePackageImports: [
+      "lucide-react",
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-slot",
+      "class-variance-authority",
+    ],
   },
   images: {
     formats: ["image/avif", "image/webp"],

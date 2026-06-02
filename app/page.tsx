@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button-link";
 import { FaqSectionLoader } from "@/components/lazy/faq-section-loader";
 import { PublishFormSectionLoader } from "@/components/lazy/publish-form-section-loader";
 import { GameCard, GameShowcaseRow, SectionHeading } from "@/components/game-card";

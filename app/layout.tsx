@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
-import { AnalyticsGate } from "@/components/analytics-gate";
-import { CookieConsentLoader } from "@/components/cookie-consent-loader";
+import { DeferredClientWidgets } from "@/components/deferred-client-widgets";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { siteConfig } from "@/lib/site";
@@ -51,8 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <CookieConsentLoader />
-        <AnalyticsGate />
+        <DeferredClientWidgets />
       </body>
     </html>
   );

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ButtonLink } from "@/components/ui/button";
-import { navLinks } from "@/lib/site";
+import { ButtonLink } from "@/components/ui/button-link";
 import { MobileNav } from "@/components/layout/mobile-nav";
+import { navLinks } from "@/lib/site";
 
 export function Header() {
   return (

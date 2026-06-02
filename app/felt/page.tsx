@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button-link";
 import { FeltHeroPhone } from "@/components/phone-mockup";
 import { felt } from "@/lib/felt";
 
