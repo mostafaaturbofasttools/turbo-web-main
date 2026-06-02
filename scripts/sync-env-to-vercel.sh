@@ -13,10 +13,18 @@
 #
 # Security:
 #   - Reads ONLY keys listed in .env.example (no stray secrets)
+#   - Never touches VERCEL_OIDC_TOKEN (Vercel CLI block at end of .env.local)
 #   - Never prints secret values to the terminal
 #   - Never commit .env.local — it stays gitignored
+#
+# Warning: `vercel env pull .env.local` overwrites the whole file. To refresh only
+# VERCEL_OIDC_TOKEN, run: bash scripts/refresh-vercel-oidc.sh
 
 set -euo pipefail
+
+# In an interactive Mac terminal, Vercel may still prompt unless CI mode is set.
+# Without this, output redirected to /dev/null looks like a hang.
+export CI=1
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 ENV_FILE="${ENV_FILE:-$ROOT/.env.local}"
@@ -44,6 +52,11 @@ if ! vercel whoami >/dev/null 2>&1; then
   exit 1
 fi
 
+# Node sync avoids Mac Terminal + bash hangs; set USE_BASH_SYNC=1 to force this script.
+if [[ "${USE_BASH_SYNC:-}" != "1" ]] && command -v node >/dev/null 2>&1; then
+  exec node "$ROOT/scripts/sync-env-to-vercel.mjs" "$TARGET"
+fi
+
 if [[ ! -d "$ROOT/.vercel" ]]; then
   echo "Linking Vercel project (one-time)..."
   (cd "$ROOT" && vercel link)
@@ -54,9 +67,11 @@ case "$TARGET" in
   production) ENVS=(production) ;;
   preview) ENVS=(preview) ;;
   development) ENVS=(development) ;;
-  all) ENVS=(production preview development) ;;
+  # Preview needs a git branch in the Vercel CLI — set PREVIEW_BRANCH or use the dashboard.
+  all) ENVS=(production development) ;;
   *)
     echo "Usage: $0 [production|preview|development|all]"
+    echo "  all = production + development (preview skipped — use dashboard or PREVIEW_BRANCH=my-branch $0 preview)"
     exit 1
     ;;
 esac
@@ -75,26 +90,78 @@ read_env_value() {
   printf '%s' "$value"
 }
 
+log_indicates_success() {
+  local log="$1"
+  grep -qE 'Updated|Overrode|Added|Saved' "$log" 2>/dev/null
+}
+
+# Foreground Vercel + 90s timeout (background jobs often hang in Mac Terminal.app).
+run_vercel_logged() {
+  local log="$1"
+  local stdin_file="$2"
+  shift 2
+  : >"$log"
+  (
+    cd "$ROOT" || exit 1
+    if command -v perl >/dev/null 2>&1; then
+      perl -e 'alarm(90); exec @ARGV' -- vercel "$@" <"$stdin_file"
+    else
+      vercel "$@" <"$stdin_file"
+    fi
+  ) >"$log" 2>&1 || true
+  if grep -q 'timed out' "$log" 2>/dev/null; then
+    return 1
+  fi
+  log_indicates_success "$log"
+}
+
 sync_key() {
   local key="$1"
   local value="$2"
   local env
+  local tmp
+  local log
+
+  tmp="$(mktemp)"
+  log="$(mktemp)"
+  printf '%s' "$value" >"$tmp"
+  trap 'rm -f "$tmp" "$log"' RETURN
 
   for env in "${ENVS[@]}"; do
-    echo "→ $key ($env)"
-    if printf '%s' "$value" | vercel env add "$key" "$env" --force >/dev/null 2>&1; then
-      :
-    elif printf '%s' "$value" | vercel env add "$key" "$env" >/dev/null 2>&1; then
-      :
+    printf "→ %s (%s) ... " "$key" "$env"
+
+    if [[ "$env" == "production" ]]; then
+      if run_vercel_logged "$log" "$tmp" env update "$key" "$env" --yes --sensitive --non-interactive; then
+        echo "ok"
+        continue
+      fi
+      if run_vercel_logged "$log" "$tmp" env add "$key" "$env" --force --yes --sensitive --non-interactive; then
+        echo "ok"
+        continue
+      fi
     else
-      echo "  Failed to set $key for $env. Try manually: vercel env add $key $env"
-      exit 1
+      if run_vercel_logged "$log" "$tmp" env update "$key" "$env" --yes --non-interactive; then
+        echo "ok"
+        continue
+      fi
+      if run_vercel_logged "$log" "$tmp" env add "$key" "$env" --force --yes --non-interactive; then
+        echo "ok"
+        continue
+      fi
     fi
+
+    echo "failed"
+    tail -6 "$log" 2>/dev/null || true
+    echo "  Set manually in Vercel → Settings → Environment Variables"
+    exit 1
   done
 }
 
 echo "Syncing env keys from .env.local to Vercel ($TARGET)..."
-echo "(values are not printed)"
+echo "(values are not printed; each line may take a few seconds)"
+if [[ "$TARGET" == "all" ]]; then
+  echo "(all = production + development; preview vars must be added in the Vercel dashboard)"
+fi
 echo ""
 
 SYNCED=0
