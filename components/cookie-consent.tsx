@@ -19,20 +19,21 @@ function linkClassName() {
 }
 
 export function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !localStorage.getItem(COOKIE_CONSENT_KEY);
+  });
   const [showManage, setShowManage] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (!stored) setVisible(true);
-
     const openPreferences = () => {
       setVisible(true);
       setShowManage(true);
     };
 
     window.addEventListener(COOKIE_PREFERENCES_EVENT, openPreferences);
-    return () => window.removeEventListener(COOKIE_PREFERENCES_EVENT, openPreferences);
+    return () =>
+      window.removeEventListener(COOKIE_PREFERENCES_EVENT, openPreferences);
   }, []);
 
   if (!visible) return null;
@@ -61,12 +62,23 @@ export function CookieConsent() {
         {!showManage ? (
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
             <div className="max-w-3xl">
-              <h2 id="cookie-consent-title" className="text-base font-semibold text-foreground">
+              <h2
+                id="cookie-consent-title"
+                className="text-base font-semibold text-foreground"
+              >
                 We use cookies
               </h2>
-              <p id="cookie-consent-desc" className="mt-1.5 text-sm leading-relaxed text-muted">
-                Cookies help this site function, measure usage, and support marketing.{" "}
-                <button type="button" className={linkClassName()} onClick={() => setShowManage(true)}>
+              <p
+                id="cookie-consent-desc"
+                className="mt-1.5 text-sm leading-relaxed text-muted"
+              >
+                Cookies help this site function, measure usage, and support
+                marketing.{" "}
+                <button
+                  type="button"
+                  className={linkClassName()}
+                  onClick={() => setShowManage(true)}
+                >
                   Manage
                 </button>{" "}
                 your cookie preferences anytime. Learn more about our{" "}
@@ -102,22 +114,32 @@ export function CookieConsent() {
           </div>
         ) : (
           <div className="max-w-2xl">
-            <h2 id="cookie-consent-title" className="text-base font-semibold text-foreground">
+            <h2
+              id="cookie-consent-title"
+              className="text-base font-semibold text-foreground"
+            >
               Cookie preferences
             </h2>
             <p id="cookie-consent-desc" className="mt-1.5 text-sm text-muted">
-              Choose which cookies we can use. Essential cookies are required for the site to work.
+              Choose which cookies we can use. Essential cookies are required
+              for the site to work.
             </p>
 
             <ul className="mt-4 space-y-3 text-sm">
               <li className="rounded-xl border border-border bg-surface/60 px-4 py-3">
                 <p className="font-medium text-foreground">Essential</p>
-                <p className="mt-1 text-muted">Required for security, forms, and remembering your consent choice.</p>
+                <p className="mt-1 text-muted">
+                  Required for security, forms, and remembering your consent
+                  choice.
+                </p>
                 <p className="mt-2 text-xs text-accent">Always active</p>
               </li>
               <li className="rounded-xl border border-border bg-surface/60 px-4 py-3">
                 <p className="font-medium text-foreground">Analytics</p>
-                <p className="mt-1 text-muted">Helps us understand traffic and improve the site (Vercel Analytics).</p>
+                <p className="mt-1 text-muted">
+                  Helps us understand traffic and improve the site (Vercel
+                  Analytics).
+                </p>
               </li>
             </ul>
 

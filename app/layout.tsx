@@ -21,8 +21,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | ${siteConfig.descriptor}`,
     template: `%s | ${siteConfig.name}`,
   },
-  description:
-    "TRBO publishes and grows apps with AI-powered development, hybrid paid + organic distribution, and partner publishing through Supercent, Voodoo, and Homa.",
+  description: siteConfig.heroSubline,
   alternates: {
     canonical: "/",
   },
@@ -43,10 +42,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} dark h-full`}>
-      <body className={`${geistSans.variable} min-h-full flex flex-col bg-background text-foreground antialiased`}>
+      <body
+        className={`${geistSans.variable} min-h-full flex flex-col bg-background text-foreground antialiased`}
+      >
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

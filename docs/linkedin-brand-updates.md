@@ -3,9 +3,9 @@
 Use this document to manually update your [LinkedIn company page](https://ca.linkedin.com/company/trbo-fast-tools-inc), logo, and related profiles after the new website launches.
 
 **Last aligned with website positioning:** June 2026  
-**Canonical descriptor:** The AI-Powered App Publishing & Growth Agency  
-**Tagline:** We Build. Publish. Scale.  
-**Proof points:** **2M+ downloads** · **16+ apps** · Supercent / Voodoo / Homa partnerships · Felt flagship
+**Canonical descriptor:** AI-native app publishing studio for consumer apps and games  
+**Tagline:** We build, publish, and scale AI-native consumer apps.  
+**Proof points:** **2M+ downloads** · **16+ apps** · **$1M+ revenue generated** · Supercent / Voodoo / Homa partnerships · Felt Owned Product Lab
 
 ---
 

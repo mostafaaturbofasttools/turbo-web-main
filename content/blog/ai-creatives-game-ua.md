@@ -1,6 +1,6 @@
 ---
-title: AI + Human Creatives for Game User Acquisition
-description: Why the best-performing game ads blend generative AI with human editors — and how TRBO tests at scale.
+title: "How TRBO Tests AI-Generated Creatives Before Scaling UA Budget"
+description: We generate ad variants fast with AI, then let human operators decide what gets budget. Here is how TRBO runs creative testing before scaling UA.
 date: 2026-03-03
 cover: /blog/covers/ai-creatives-game-ua.webp
 tags: [ai, ua, creatives, games]

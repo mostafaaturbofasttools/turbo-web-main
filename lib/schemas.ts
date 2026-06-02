@@ -8,6 +8,17 @@ const optionalUrl = (label: string) =>
       message: `Enter a valid ${label} URL (https://...)`,
     });
 
+const optionalText = z.string().trim();
+
+export const publishHelpOptions = [
+  { value: "publishing", label: "Publishing & distribution" },
+  { value: "ua", label: "User acquisition / UA" },
+  { value: "creatives", label: "Ad creatives & ASO" },
+  { value: "product", label: "Product & retention" },
+  { value: "co-dev", label: "Co-development" },
+  { value: "other", label: "Other" },
+] as const;
+
 export const publishFormSchema = z
   .object({
     appName: z.string().min(2, "App name is required"),
@@ -24,14 +35,28 @@ export const publishFormSchema = z
     appStoreUrl: optionalUrl("App Store"),
     playStoreUrl: optionalUrl("Google Play"),
     contactEmail: z.string().email("Valid email required"),
+    currentDownloads: optionalText,
+    d1Retention: optionalText,
+    d7Retention: optionalText,
+    monthlyRevenue: optionalText,
+    cpiCacTested: optionalText,
+    targetCountries: optionalText,
+    testFlightLink: optionalUrl("TestFlight or APK"),
+    helpNeeded: z.array(z.string()).optional(),
+    revenueShareOpen: z.enum(["yes", "no"], {
+      message: "Let us know if you are open to revenue share",
+    }),
   })
   .superRefine((data, ctx) => {
     const hasLink =
-      data.website.length > 0 || data.appStoreUrl.length > 0 || data.playStoreUrl.length > 0;
+      data.website.length > 0 ||
+      data.appStoreUrl.length > 0 ||
+      data.playStoreUrl.length > 0 ||
+      (data.testFlightLink?.length ?? 0) > 0;
     if (!hasLink) {
       ctx.addIssue({
         code: "custom",
-        message: "Provide at least one link: website, App Store, or Google Play",
+        message: "Provide at least one link: website, App Store, Google Play, or TestFlight/APK",
         path: ["website"],
       });
     }

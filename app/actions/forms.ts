@@ -53,6 +53,8 @@ function submissionUnavailable() {
 }
 
 export async function submitPublishForm(formData: FormData): Promise<FormActionResult> {
+  const helpNeeded = formData.getAll("helpNeeded").map(String).filter(Boolean);
+
   const parsed = publishFormSchema.safeParse({
     appName: formData.get("appName"),
     appDescription: formData.get("appDescription"),
@@ -64,6 +66,15 @@ export async function submitPublishForm(formData: FormData): Promise<FormActionR
     appStoreUrl: formData.get("appStoreUrl"),
     playStoreUrl: formData.get("playStoreUrl"),
     contactEmail: formData.get("contactEmail"),
+    currentDownloads: formData.get("currentDownloads") ?? "",
+    d1Retention: formData.get("d1Retention") ?? "",
+    d7Retention: formData.get("d7Retention") ?? "",
+    monthlyRevenue: formData.get("monthlyRevenue") ?? "",
+    cpiCacTested: formData.get("cpiCacTested") ?? "",
+    targetCountries: formData.get("targetCountries") ?? "",
+    testFlightLink: formData.get("testFlightLink") ?? "",
+    helpNeeded: helpNeeded.length > 0 ? helpNeeded : undefined,
+    revenueShareOpen: formData.get("revenueShareOpen"),
   });
 
   if (!parsed.success) {
@@ -78,7 +89,12 @@ export async function submitPublishForm(formData: FormData): Promise<FormActionR
   const payload = {
     type: "publish" as const,
     submittedAt: new Date().toISOString(),
-    data: Object.fromEntries(Object.entries(parsed.data).map(([k, v]) => [k, String(v)])),
+    data: Object.fromEntries(
+      Object.entries(parsed.data).map(([k, v]) => [
+        k,
+        Array.isArray(v) ? v.join(", ") : String(v ?? ""),
+      ]),
+    ),
   };
 
   const body = Object.entries(parsed.data)

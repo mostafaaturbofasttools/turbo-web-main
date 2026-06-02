@@ -1,6 +1,6 @@
 ---
-title: Publisher Partnerships That Actually Scale Games
-description: Self-publish vs co-dev with Supercent, Voodoo, and Homa — how TRBO matches the right path to your title.
+title: "How We Decide: Self-Publish vs Supercent, Voodoo, or Homa"
+description: Not every title should launch the same way. Here is how TRBO chooses self-publishing versus co-dev with Supercent, Voodoo, or Homa.
 date: 2026-02-18
 cover: /blog/covers/publisher-partnerships-scale.webp
 tags: [publishing, games, partners]

@@ -1,6 +1,6 @@
 # TRBO Fast Tools — Marketing Website
 
-Next.js 16 marketing site for [TRBO FAST TOOLS INC](https://www.turbofasttools.com) — The AI-Powered App Publishing & Growth Agency.
+Next.js 16 marketing site for [TRBO FAST TOOLS INC](https://www.turbofasttools.com) — AI-native app publishing studio for consumer apps and games.
 
 ## Stack
 

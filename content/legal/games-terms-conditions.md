@@ -121,4 +121,3 @@ downloading, and updating the APPS.
 * Facebook
 * Instagram
 
-bottom of page
