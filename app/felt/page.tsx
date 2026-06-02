@@ -91,7 +91,7 @@ export default function FeltPage() {
               Daily writing, growing self-awareness, and an AI buddy that learns you over time.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid grid-balance-md3 gap-8 md:grid-cols-3 [--grid-balance-gap:2rem]">
             {felt.highlights.map((h, i) => (
               <article key={h.title} className="rounded-2xl border border-border bg-card/60 p-6">
                 <p className="text-sm font-bold text-accent">0{i + 1}</p>
@@ -110,7 +110,7 @@ export default function FeltPage() {
           <p className="mx-auto mt-3 max-w-2xl text-center text-muted">
             Daily journaling, mood tracking, and a buddy that gets more helpful the more you share.
           </p>
-          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+          <div className="mt-12 grid grid-balance-sm3 gap-6 sm:grid-cols-3">
             {felt.screenshots.map((shot) => (
               <div
                 key={shot.src}
@@ -155,7 +155,7 @@ export default function FeltPage() {
             <h2 className="text-3xl font-bold">{felt.themes.title}</h2>
             <p className="mt-4 text-lg text-muted">{felt.themes.description}</p>
           </div>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          <div className="mt-10 grid grid-balance-2 gap-6 sm:grid-cols-2 [--grid-balance-gap:1.5rem]">
             {felt.themes.images.map((src) => (
               <Image
                 key={src}

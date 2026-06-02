@@ -3,6 +3,7 @@
 import { useActionState } from "react";
 import { submitPublishForm } from "@/app/actions/forms";
 import { Button } from "@/components/ui/button";
+import { RequiredMark } from "@/components/ui/required-mark";
 import type { FormActionResult } from "@/lib/schemas";
 import { publishHelpOptions, publishStages } from "@/lib/schemas";
 
@@ -21,7 +22,8 @@ export function PublishForm() {
       <div className="rounded-2xl border border-accent/30 bg-accent/10 p-8 text-center">
         <h3 className="text-xl font-bold">Submission received</h3>
         <p className="mt-2 text-muted">
-          Thank you. Our team will review your app and get back to you.
+          Someone from our team will review your app. If it is a match, we will contact you within 7
+          business days.
         </p>
       </div>
     );
@@ -34,10 +36,14 @@ export function PublishForm() {
 
   return (
     <form action={action} className="space-y-4">
+      <p className="text-xs text-muted">
+        Fields marked with <span className="text-accent">*</span> are required.
+      </p>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="appName" className="mb-1.5 block text-sm font-medium">
             App name
+            <RequiredMark />
           </label>
           <input
             id="appName"
@@ -55,6 +61,7 @@ export function PublishForm() {
             className="mb-1.5 block text-sm font-medium"
           >
             Category
+            <RequiredMark />
           </label>
           <input
             id="category"
@@ -72,6 +79,7 @@ export function PublishForm() {
             className="mb-1.5 block text-sm font-medium"
           >
             Team size
+            <RequiredMark />
           </label>
           <input
             id="teamSize"
@@ -86,6 +94,7 @@ export function PublishForm() {
         <div>
           <label htmlFor="stage" className="mb-1.5 block text-sm font-medium">
             App stage
+            <RequiredMark />
           </label>
           <select
             id="stage"
@@ -112,6 +121,7 @@ export function PublishForm() {
             className="mb-1.5 block text-sm font-medium"
           >
             What is your app about?
+            <RequiredMark />
           </label>
           <textarea
             id="appDescription"
@@ -129,6 +139,7 @@ export function PublishForm() {
             className="mb-1.5 block text-sm font-medium"
           >
             Where is the app today?
+            <RequiredMark />
           </label>
           <textarea
             id="traction"
@@ -143,10 +154,13 @@ export function PublishForm() {
 
         <div className="sm:col-span-2 space-y-3">
           <div>
-            <p className="text-sm font-medium">Links</p>
+            <p className="text-sm font-medium">
+              Links
+              <RequiredMark />
+            </p>
             <p className="mt-1 text-xs text-muted">
-              At least one is required. Use a full https URL. Leave any field
-              blank if it does not apply yet.
+              At least one link is required. Use a full https URL. Leave any field blank if it does
+              not apply yet.
             </p>
           </div>
 
@@ -208,6 +222,7 @@ export function PublishForm() {
             className="mb-1.5 block text-sm font-medium"
           >
             Contact email
+            <RequiredMark />
           </label>
           <input
             id="contactEmail"
@@ -333,6 +348,7 @@ export function PublishForm() {
         <div className="sm:col-span-2">
           <label htmlFor="revenueShareOpen" className="mb-1.5 block text-sm font-medium">
             Open to revenue share?
+            <RequiredMark />
           </label>
           <select id="revenueShareOpen" name="revenueShareOpen" required defaultValue="" className={inputClass}>
             <option value="" disabled>

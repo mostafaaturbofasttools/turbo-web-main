@@ -143,7 +143,7 @@ export default function HomePage() {
             title="Publisher-first, growth-driven"
             description="From market insight to hybrid distribution, our Growth Engine and team help apps reach users and scale beyond typical publishing limits."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-balance-sm2-lg3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((s) => (
               <article key={s.number} className="rounded-2xl border border-border bg-card/60 p-6">
                 <p className="text-xs font-bold text-accent">{s.number}</p>
@@ -162,7 +162,7 @@ export default function HomePage() {
             title="How we operate at scale"
             description="Internal modules we use every day to analyze, test, and grow consumer apps. This is how TRBO runs publishing."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-balance-sm2-lg3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {growthEngineModules.map((mod) => (
               <article key={mod.name} className="rounded-2xl border border-border bg-card/60 p-6">
                 <h3 className="text-lg font-bold">{mod.name}</h3>
@@ -180,7 +180,7 @@ export default function HomePage() {
             title="Proven results"
             description="Real apps, real distribution, and what TRBO did to move the needle."
           />
-          <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          <div className="mt-12 grid grid-balance-lg3 gap-6 lg:grid-cols-3">
             {caseStudies.map((cs) => (
               <article key={cs.slug} className="flex flex-col rounded-2xl border border-border bg-card/70 p-6">
                 <div className="flex items-start gap-4">
@@ -292,7 +292,7 @@ export default function HomePage() {
       <section className="border-t border-border bg-surface/20 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionHeading label="All apps" title="More apps by TRBO" />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-balance-sm2-lg3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {moreAppsGames.map((game) => (
               <GameCard key={game.slug} game={game} />
             ))}
@@ -359,7 +359,7 @@ export default function HomePage() {
             title={marketingToolsSection.title}
             description={marketingToolsSection.description}
           />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid grid-balance-sm2-lg3 gap-6 [--grid-balance-gap:1.5rem] sm:grid-cols-2 lg:grid-cols-3">
             {marketingTools.map((tool) => (
               <a
                 key={tool.href}
@@ -483,7 +483,7 @@ export default function HomePage() {
       <section className="border-y border-border bg-surface/20 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionHeading label="Reviews" title="What users say about Felt" />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-12 grid grid-balance-2 gap-5 sm:grid-cols-2">
             {feltReviews.map((r) => (
               <blockquote key={r.author} className="rounded-2xl border border-border bg-card/60 p-6">
                 <p className="text-sm text-accent">{"★".repeat(r.rating)}</p>
@@ -499,7 +499,7 @@ export default function HomePage() {
       <section className="px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionHeading label="Blog" title="Latest insights" />
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid grid-balance-md3 gap-6 md:grid-cols-3">
             {posts.map((post) => (
               <Link
                 key={post.slug}

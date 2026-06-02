@@ -78,3 +78,59 @@ body {
   line-height: 1.75;
   color: var(--muted);
 }
+
+/* Center a lone item in the last row of multi-column card grids */
+@layer utilities {
+  .grid-balance-sm2-lg3 {
+    --grid-balance-gap: 1.25rem;
+  }
+
+  @media (width >= 640px) and (width < 1024px) {
+    .grid-balance-sm2-lg3 > :last-child:nth-child(2n + 1):not(:only-child) {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: 100%;
+      max-width: calc((100% - var(--grid-balance-gap)) / 2);
+    }
+  }
+
+  @media (width >= 1024px) {
+    .grid-balance-sm2-lg3 > :last-child:nth-child(3n + 1):not(:only-child) {
+      grid-column-start: 2;
+      max-width: none;
+      width: auto;
+      justify-self: stretch;
+    }
+  }
+
+  @media (width >= 640px) {
+    .grid-balance-sm3 > :last-child:nth-child(3n + 1):not(:only-child) {
+      grid-column-start: 2;
+    }
+  }
+
+  @media (width >= 768px) {
+    .grid-balance-md3 > :last-child:nth-child(3n + 1):not(:only-child) {
+      grid-column-start: 2;
+    }
+  }
+
+  @media (width >= 1024px) {
+    .grid-balance-lg3 > :last-child:nth-child(3n + 1):not(:only-child) {
+      grid-column-start: 2;
+    }
+  }
+
+  @media (width >= 640px) {
+    .grid-balance-2 {
+      --grid-balance-gap: 1.25rem;
+    }
+
+    .grid-balance-2 > :last-child:nth-child(2n + 1):not(:only-child) {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: 100%;
+      max-width: calc((100% - var(--grid-balance-gap)) / 2);
+    }
+  }
+}
