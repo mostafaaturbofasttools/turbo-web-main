@@ -1,7 +1,14 @@
 "use server";
 
 import { Resend } from "resend";
-import { contactFormSchema, publishFormSchema, type FormActionResult } from "@/lib/schemas";
+import {
+  contactFormSchema,
+  parsePublishFormValues,
+  publishFormSchema,
+  type ContactFormActionResult,
+  type FormFieldErrors,
+  type PublishFormActionResult,
+} from "@/lib/schemas";
 import { checkRateLimit } from "@/lib/submissions/rate-limit";
 import { saveSubmission } from "@/lib/submissions";
 
@@ -41,49 +48,56 @@ async function persistSubmission(payload: Parameters<typeof saveSubmission>[0]):
   return true;
 }
 
-function submissionUnavailable() {
-  return {
-    ok: false as const,
-    error: {
-      form: [
-        "We could not save your submission right now. Please email info@turbofasttools.com directly.",
-      ],
-    },
-  };
+function publishFailure(error: FormFieldErrors, values: ReturnType<typeof parsePublishFormValues>): PublishFormActionResult {
+  return { ok: false, error, values, attemptId: String(Date.now()) };
 }
 
-export async function submitPublishForm(formData: FormData): Promise<FormActionResult> {
-  const helpNeeded = formData.getAll("helpNeeded").map(String).filter(Boolean);
+async function persistPublishAttempt(
+  values: ReturnType<typeof parsePublishFormValues>,
+  reason: string,
+  error?: Record<string, string[] | undefined>,
+): Promise<void> {
+  if (!process.env.AZURE_STORAGE_CONNECTION_STRING) return;
+
+  try {
+    await saveSubmission({
+      type: "publish-attempt",
+      submittedAt: new Date().toISOString(),
+      data: {
+        ...Object.fromEntries(
+          Object.entries(values).map(([k, v]) => [
+            k,
+            Array.isArray(v) ? v.join(", ") : String(v ?? ""),
+          ]),
+        ),
+        _reason: reason,
+        _errors: error ? JSON.stringify(error) : "",
+      },
+    });
+  } catch (err) {
+    console.error("[submission] Failed to save publish attempt:", err);
+  }
+}
+
+export async function submitPublishForm(formData: FormData): Promise<PublishFormActionResult> {
+  const values = parsePublishFormValues(formData);
+  const helpNeeded = values.helpNeeded;
 
   const parsed = publishFormSchema.safeParse({
-    appName: formData.get("appName"),
-    appDescription: formData.get("appDescription"),
-    category: formData.get("category"),
-    teamSize: formData.get("teamSize"),
-    stage: formData.get("stage"),
-    traction: formData.get("traction"),
-    website: formData.get("website"),
-    appStoreUrl: formData.get("appStoreUrl"),
-    playStoreUrl: formData.get("playStoreUrl"),
-    contactEmail: formData.get("contactEmail"),
-    currentDownloads: formData.get("currentDownloads") ?? "",
-    d1Retention: formData.get("d1Retention") ?? "",
-    d7Retention: formData.get("d7Retention") ?? "",
-    monthlyRevenue: formData.get("monthlyRevenue") ?? "",
-    cpiCacTested: formData.get("cpiCacTested") ?? "",
-    targetCountries: formData.get("targetCountries") ?? "",
-    testFlightLink: formData.get("testFlightLink") ?? "",
+    ...values,
     helpNeeded: helpNeeded.length > 0 ? helpNeeded : undefined,
-    revenueShareOpen: formData.get("revenueShareOpen"),
   });
 
   if (!parsed.success) {
-    return { ok: false as const, error: parsed.error.flatten().fieldErrors };
+    const error = parsed.error.flatten().fieldErrors;
+    void persistPublishAttempt(values, "validation_failed", error);
+    return publishFailure(error, values);
   }
 
   const email = parsed.data.contactEmail;
   if (!(await checkRateLimit(`publish:${email}`))) {
-    return { ok: false as const, error: { form: ["Please wait a minute before submitting again."] } };
+    void persistPublishAttempt(values, "rate_limited");
+    return publishFailure({ form: ["Please wait a minute before submitting again."] }, values);
   }
 
   const payload = {
@@ -107,25 +121,39 @@ export async function submitPublishForm(formData: FormData): Promise<FormActionR
   ]);
 
   if (process.env.NODE_ENV === "production" && !saved && !emailed) {
-    return submissionUnavailable();
+    void persistPublishAttempt(values, "delivery_failed");
+    return publishFailure(
+      {
+        form: [
+          "We could not save your submission right now. Please email info@turbofasttools.com directly.",
+        ],
+      },
+      values,
+    );
   }
 
   return { ok: true as const };
 }
 
-export async function submitContactForm(formData: FormData): Promise<FormActionResult> {
-  const parsed = contactFormSchema.safeParse({
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-  });
+export async function submitContactForm(formData: FormData): Promise<ContactFormActionResult> {
+  const values = {
+    name: String(formData.get("name") ?? "").trim(),
+    email: String(formData.get("email") ?? "").trim(),
+    message: String(formData.get("message") ?? "").trim(),
+  };
+
+  const parsed = contactFormSchema.safeParse(values);
 
   if (!parsed.success) {
-    return { ok: false as const, error: parsed.error.flatten().fieldErrors };
+    return { ok: false as const, error: parsed.error.flatten().fieldErrors, values };
   }
 
   if (!(await checkRateLimit(`contact:${parsed.data.email}`))) {
-    return { ok: false as const, error: { form: ["Please wait a minute before submitting again."] } };
+    return {
+      ok: false as const,
+      error: { form: ["Please wait a minute before submitting again."] },
+      values,
+    };
   }
 
   const payload = {
@@ -142,7 +170,15 @@ export async function submitContactForm(formData: FormData): Promise<FormActionR
   ]);
 
   if (process.env.NODE_ENV === "production" && !saved && !emailed) {
-    return submissionUnavailable();
+    return {
+      ok: false as const,
+      error: {
+        form: [
+          "We could not save your submission right now. Please email info@turbofasttools.com directly.",
+        ],
+      },
+      values,
+    };
   }
 
   return { ok: true as const };

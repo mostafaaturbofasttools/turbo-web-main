@@ -1,5 +1,5 @@
 export type SubmissionPayload = {
-  type: "publish" | "contact";
+  type: "publish" | "contact" | "publish-attempt";
   submittedAt: string;
   data: Record<string, string>;
 };

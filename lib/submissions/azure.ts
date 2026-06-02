@@ -16,9 +16,9 @@ export function createAzureSubmissionStore(): SubmissionStore {
       }
 
       const idPart =
-        payload.type === "publish"
-          ? slugify(payload.data.appName ?? "app")
-          : slugify(payload.data.name ?? "contact");
+        payload.type === "contact"
+          ? slugify(payload.data.name ?? "contact")
+          : slugify(payload.data.appName ?? "app");
       const blobName = azureBlobPath("submissions", payload.type, `${Date.now()}-${idPart}.json`);
 
       const blockBlob = container.getBlockBlobClient(blobName);
