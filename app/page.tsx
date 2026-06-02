@@ -55,7 +55,7 @@ export default function HomePage() {
             name: siteConfig.name,
             url: siteConfig.url,
             email: siteConfig.email,
-            description: siteConfig.descriptor,
+            description: siteConfig.heroSubline,
             address: {
               "@type": "PostalAddress",
               streetAddress: siteConfig.address.street,
@@ -75,10 +75,15 @@ export default function HomePage() {
             We Build. <span className="text-accent">Publish.</span>{" "}
             <span className="text-accent-2">Scale.</span>
           </h1>
-          <p className="mt-6 inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
+          <p className="mx-auto mt-5 max-w-2xl text-base font-medium text-foreground sm:text-lg">
+            {siteConfig.descriptor}
+          </p>
+          <p className="mt-4 inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
             {siteConfig.name} · Est. 2021
           </p>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-muted">{siteConfig.heroSubline}</p>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
+            {siteConfig.heroSubline}
+          </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <ButtonLink href="/publish" size="lg">
               Submit your app

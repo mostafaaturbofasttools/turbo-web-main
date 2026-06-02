@@ -3,7 +3,7 @@ export const siteConfig = {
   descriptor: "AI-native app publishing studio for consumer apps and games",
   tagline: "We build, publish, and scale AI-native consumer apps.",
   heroSubline:
-    "We build apps, test growth with AI and paid UA, and publish on our own or with Supercent, Voodoo, and Homa.",
+    "TRBO combines product engineering, AI workflows, creative testing, UA experiments, and publisher partnerships to turn promising apps into scalable businesses.",
   url: "https://www.turbofasttools.com",
   email: "info@turbofasttools.com",
   address: {
