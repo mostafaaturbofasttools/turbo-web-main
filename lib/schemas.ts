@@ -5,7 +5,7 @@ const optionalUrl = (label: string) =>
     .string()
     .trim()
     .refine((val) => val === "" || z.string().url().safeParse(val).success, {
-      message: `Enter a valid ${label} URL (https://...)`,
+      message: `Enter a valid ${label} link starting with https:// (e.g. https://apps.apple.com/...)`,
     });
 
 const optionalText = z.string().trim();
@@ -161,7 +161,7 @@ export const publishFormSchema = z
     website: optionalUrl("website"),
     appStoreUrl: optionalUrl("App Store"),
     playStoreUrl: optionalUrl("Google Play"),
-    contactEmail: z.string().email("Valid email required"),
+    contactEmail: z.string().email("Enter a valid email address (e.g. you@company.com)"),
     currentDownloads: optionalText,
     d1Retention: optionalText,
     d7Retention: optionalText,
@@ -183,7 +183,7 @@ export const publishFormSchema = z
     if (!hasLink) {
       ctx.addIssue({
         code: "custom",
-        message: "Provide at least one link: website, App Store, Google Play, or TestFlight/APK",
+        message: "Add at least one link: website, App Store, Google Play, or TestFlight/APK",
         path: ["website"],
       });
     }
@@ -192,9 +192,9 @@ export const publishFormSchema = z
 export type PublishFormData = z.infer<typeof publishFormSchema>;
 
 export const contactFormSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  message: z.string().min(10),
+  name: z.string().min(2, "Name is required"),
+  email: z.string().email("Enter a valid email address"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

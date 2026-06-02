@@ -18,7 +18,7 @@ export default function PublishPage() {
           title="Submit your app"
           description="Share your app, stage, and links. We review every submission, validate our bar, and invite strong fits to a publisher test and publishing agreement."
         />
-        <div className="mt-10 rounded-2xl border border-border bg-card/50 p-6 sm:p-8">
+        <div className="mt-10 min-h-[28rem] rounded-2xl border border-border bg-card/50 p-6 sm:p-8">
           <PublishForm />
         </div>
       </div>

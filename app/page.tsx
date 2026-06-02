@@ -359,22 +359,43 @@ export default function HomePage() {
             title={marketingToolsSection.title}
             description={marketingToolsSection.description}
           />
-          <div className="mt-12 grid grid-balance-sm2-lg3 gap-6 [--grid-balance-gap:1.5rem] sm:grid-cols-2 lg:grid-cols-3">
-            {marketingTools.map((tool) => (
-              <a
-                key={tool.href}
-                href={tool.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex h-full flex-col rounded-2xl border border-border bg-card/60 p-6 transition hover:border-accent/40 hover:shadow-lg hover:shadow-black/20"
-              >
-                <p className="text-xs font-bold uppercase tracking-wider text-accent-2">{tool.tagline}</p>
-                <h3 className="mt-2 text-xl font-bold group-hover:text-accent">{tool.name}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{tool.description}</p>
-                <p className="mt-4 text-sm font-semibold text-accent">Visit platform →</p>
-              </a>
-            ))}
-          </div>
+          {marketingTools.length === 1 ? (
+            <div className="mx-auto mt-10 max-w-4xl">
+              {marketingTools.map((tool) => (
+                <a
+                  key={tool.href}
+                  href={tool.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex flex-col rounded-2xl border border-border bg-card/60 p-8 transition hover:border-accent/40 hover:shadow-lg hover:shadow-black/20"
+                >
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent-2">{tool.tagline}</p>
+                  <h3 className="mt-2 text-2xl font-bold group-hover:text-accent">{tool.name}</h3>
+                  <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+                    {tool.description}
+                  </p>
+                  <p className="mt-6 text-sm font-semibold text-accent">Visit platform →</p>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-12 grid grid-balance-sm2-lg3 gap-6 [--grid-balance-gap:1.5rem] sm:grid-cols-2 lg:grid-cols-3">
+              {marketingTools.map((tool) => (
+                <a
+                  key={tool.href}
+                  href={tool.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex h-full flex-col rounded-2xl border border-border bg-card/60 p-6 transition hover:border-accent/40 hover:shadow-lg hover:shadow-black/20"
+                >
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent-2">{tool.tagline}</p>
+                  <h3 className="mt-2 text-xl font-bold group-hover:text-accent">{tool.name}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{tool.description}</p>
+                  <p className="mt-4 text-sm font-semibold text-accent">Visit platform →</p>
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
@@ -534,14 +555,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="publish" className="border-t border-border px-4 py-20 sm:px-6">
+      <section id="publish" className="border-t border-border px-4 py-20 sm:px-6 scroll-mt-20">
         <div className="mx-auto max-w-3xl">
           <SectionHeading
             label="Partner with us"
             title="Submit your app"
             description="Share your app, stage, and links. We review submissions, validate our bar, and invite accepted apps to a publisher test and publishing agreement."
           />
-          <div className="mt-10 rounded-2xl border border-border bg-card/50 p-6 sm:p-8">
+          <div className="mt-10 min-h-[28rem] rounded-2xl border border-border bg-card/50 p-6 sm:p-8">
             <PublishFormSectionLoader />
           </div>
         </div>

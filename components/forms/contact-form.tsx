@@ -27,7 +27,7 @@ export function ContactForm() {
   const formKey = state?.ok === false ? JSON.stringify(values) : "initial";
 
   return (
-    <form key={formKey} action={action} className="space-y-4">
+    <form key={formKey} action={action} noValidate className="space-y-4">
       <p className="text-xs text-muted">
         Fields marked with <span className="text-accent">*</span> are required.
       </p>
@@ -52,7 +52,9 @@ export function ContactForm() {
         <input
           id="email"
           name="email"
-          type="email"
+          type="text"
+          inputMode="email"
+          autoComplete="email"
           required
           defaultValue={values.email}
           className="w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm outline-none focus:border-accent"
