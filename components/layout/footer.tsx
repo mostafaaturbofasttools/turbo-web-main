@@ -2,7 +2,7 @@ import Link from "next/link";
 import { legalLinks, siteConfig } from "@/lib/site";
 
 export function Footer() {
-  const { address, email, linkedIn, feltInstagram } = siteConfig;
+  const { address, email, linkedIn, feltInstagram, founder } = siteConfig;
 
   return (
     <footer className="border-t border-border bg-surface/40">
@@ -42,7 +42,17 @@ export function Footer() {
             </li>
             <li>
               <a href={linkedIn} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
-                LinkedIn
+                TRBO on LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href={founder.linkedIn} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+                Founder on LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href={founder.x} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+                Founder on X
               </a>
             </li>
             <li>

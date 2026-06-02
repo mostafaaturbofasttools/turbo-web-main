@@ -56,6 +56,18 @@ export default function HomePage() {
             url: siteConfig.url,
             email: siteConfig.email,
             description: siteConfig.heroSubline,
+            sameAs: [
+              siteConfig.linkedIn,
+              siteConfig.founder.linkedIn,
+              siteConfig.founder.x,
+              siteConfig.feltInstagram,
+            ],
+            founder: {
+              "@type": "Person",
+              name: siteConfig.founder.name,
+              jobTitle: siteConfig.founder.title,
+              sameAs: [siteConfig.founder.linkedIn, siteConfig.founder.x],
+            },
             address: {
               "@type": "PostalAddress",
               streetAddress: siteConfig.address.street,
@@ -172,14 +184,32 @@ export default function HomePage() {
             {caseStudies.map((cs) => (
               <article key={cs.slug} className="flex flex-col rounded-2xl border border-border bg-card/70 p-6">
                 <div className="flex items-start gap-4">
-                  <Image
-                    src={cs.icon}
-                    alt={cs.name}
-                    width={64}
-                    height={64}
-                    sizes="64px"
-                    className="rounded-xl shadow-lg"
-                  />
+                  {"icons" in cs && cs.icons ? (
+                    <div className="flex shrink-0 items-center">
+                      {cs.icons.map((icon, i) => (
+                        <Image
+                          key={icon}
+                          src={icon}
+                          alt={`${cs.name} app icon ${i + 1}`}
+                          width={64}
+                          height={64}
+                          sizes="64px"
+                          className={`rounded-xl shadow-lg ring-2 ring-card ${
+                            i > 0 ? "-ml-5" : ""
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <Image
+                      src={cs.icon}
+                      alt={cs.name}
+                      width={64}
+                      height={64}
+                      sizes="64px"
+                      className="rounded-xl shadow-lg"
+                    />
+                  )}
                   <div className="min-w-0">
                     <p className="text-xs font-bold uppercase text-accent">{cs.partner}</p>
                     <h3 className="mt-1 text-xl font-bold">{cs.name}</h3>
@@ -401,6 +431,25 @@ export default function HomePage() {
               , {siteConfig.founder.title}
             </p>
             <p className="mt-1 text-sm font-medium text-accent">{siteConfig.founder.role}</p>
+            <p className="mt-2 text-sm text-muted">
+              <a
+                href={siteConfig.founder.linkedIn}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-foreground transition hover:text-accent"
+              >
+                LinkedIn
+              </a>
+              <span className="mx-2 text-border">·</span>
+              <a
+                href={siteConfig.founder.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-foreground transition hover:text-accent"
+              >
+                X (@mostafawmg)
+              </a>
+            </p>
             <ul className="mt-6 space-y-3">
               {founderSection.bullets.map((item) => (
                 <li key={item} className="flex gap-3 text-sm text-muted">
@@ -409,7 +458,7 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6">
+            <div className="mt-6 flex flex-wrap gap-4">
               <a
                 href={siteConfig.founder.linkedIn}
                 target="_blank"
@@ -417,6 +466,14 @@ export default function HomePage() {
                 className="text-sm font-semibold text-accent hover:underline"
               >
                 Connect on LinkedIn →
+              </a>
+              <a
+                href={siteConfig.founder.x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-accent hover:underline"
+              >
+                Follow on X →
               </a>
             </div>
           </div>
@@ -452,7 +509,7 @@ export default function HomePage() {
                 <div className="relative aspect-[2/1] overflow-hidden bg-surface">
                   <Image
                     src={post.cover}
-                    alt=""
+                    alt={post.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
                     loading="lazy"

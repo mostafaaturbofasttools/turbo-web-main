@@ -160,6 +160,7 @@ export const caseStudies = [
     result: "500K+ installs and 4.7 to 4.9 App Store ratings",
     rating: "Supercent collaboration",
     icon: "/games/my-beach-resort-play.jpg",
+    icons: ["/games/my-beach-resort-play.jpg", "/games/beach-hotel-simulator.jpg"],
     appStore: "https://apps.apple.com/us/app/my-beach-resort/id6636534055",
     playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.beachresort",
   },
@@ -189,7 +190,7 @@ export const founderSection = {
   label: "Leadership",
   title: "Built by operators, not consultants",
   description:
-    "TRBO is led by people who build, ship, and scale consumer apps every day, not slide decks about them.",
+    "TRBO is led by people who build, ship, and scale consumer apps every day, not slide decks about them. Follow founder Mostafa on LinkedIn or X (@mostafawmg).",
   bullets: [
     "AI Engineer at Microsoft focused on distributed systems, AI infrastructure, and agents",
     "Mobile apps and games portfolio with 2M+ downloads across 16+ apps",

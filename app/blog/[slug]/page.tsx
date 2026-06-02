@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MarkdownContent } from "@/components/markdown-content";
 import { getBlogPost, getBlogPosts } from "@/lib/content-loader";
+import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -23,12 +24,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getBlogPost(slug);
   if (!post) return { title: "Post not found" };
   return {
-    title: post.title,
-    description: post.description,
+    ...buildPageMetadata({
+      title: post.title,
+      description: post.description,
+      path: `/blog/${slug}`,
+    }),
     openGraph: {
       title: post.title,
       description: post.description,
-      images: [{ url: post.cover }],
+      url: `${siteConfig.url}/blog/${slug}`,
+      images: [{ url: post.cover, alt: post.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [post.cover],
     },
   };
 }
@@ -46,7 +57,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <div className="relative mt-6 aspect-[2/1] overflow-hidden rounded-2xl border border-border bg-surface">
         <Image
           src={post.cover}
-          alt=""
+          alt={post.title}
           fill
           priority
           sizes="(max-width: 768px) 100vw, 768px"

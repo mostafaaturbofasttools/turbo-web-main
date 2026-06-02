@@ -2,11 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { getBlogPosts } from "@/lib/content-loader";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Blog",
   description: "Insights on app publishing, mobile games, AI, Felt, and growth from TRBO.",
-};
+  path: "/blog",
+});
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-CA", {
@@ -33,7 +35,7 @@ export default function BlogIndexPage() {
                 <div className="relative aspect-[2/1] w-full overflow-hidden bg-surface">
                   <Image
                     src={post.cover}
-                    alt=""
+                    alt={post.title}
                     fill
                     sizes="(max-width: 896px) 100vw, 896px"
                     className="object-cover transition duration-300 group-hover:scale-[1.02]"

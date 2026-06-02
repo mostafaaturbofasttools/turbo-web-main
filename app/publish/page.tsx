@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { PublishForm } from "@/components/forms/publish-form";
 import { SectionHeading } from "@/components/game-card";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Submit Your App",
-  description: "Apply to partner with TRBO. Share your app, stage, and links. We review every submission for publishing and growth.",
-};
+  description:
+    "Apply to partner with TRBO. Share your app, stage, and links. We review every submission for publishing and growth.",
+  path: "/publish",
+});
 
 export default function PublishPage() {
   return (

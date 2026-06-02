@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/forms/contact-form";
+import { buildPageMetadata } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
-  description: `Contact ${siteConfig.name} in Vancouver, BC.`,
-};
+  description: `Contact ${siteConfig.name} in Vancouver, BC. Email ${siteConfig.email} for publishing and partnership inquiries.`,
+  path: "/contact",
+});
 
 export default function ContactPage() {
   const { address, email } = siteConfig;

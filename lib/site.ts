@@ -20,6 +20,7 @@ export const siteConfig = {
     title: "Founder & CEO",
     role: "AI Engineer at Microsoft | Distributed Systems, AI Infrastructure & Agents",
     linkedIn: "https://www.linkedin.com/in/mostafa-aminbeidokhti-150632122/",
+    x: "https://x.com/mostafawmg",
   },
   stats: {
     downloads: "2M+",

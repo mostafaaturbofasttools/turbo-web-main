@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
 import { MarkdownContent } from "@/components/markdown-content";
 import { getLegalDoc } from "@/lib/content-loader";
+import { buildPageMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 import { notFound } from "next/navigation";
 
 export function generateLegalMetadata(slug: string, fallback: string): Metadata {
   const doc = getLegalDoc(slug);
-  return { title: doc?.title ?? fallback };
+  const title = doc?.title ?? fallback;
+  return buildPageMetadata({
+    title,
+    description: `${title} for ${siteConfig.name}. Official policy at turbofasttools.com.`,
+    path: `/${slug}`,
+  });
 }
 
 export function LegalPage({ slug }: { slug: string }) {

@@ -3,11 +3,13 @@ import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button-link";
 import { FeltHeroPhone } from "@/components/phone-mockup";
 import { felt } from "@/lib/felt";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Felt: AI Journal Buddy",
   description: felt.description,
-};
+  path: "/felt",
+});
 
 export default function FeltPage() {
   return (

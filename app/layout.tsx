@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { DeferredClientWidgets } from "@/components/deferred-client-widgets";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { defaultOgImage } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -22,9 +23,6 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.heroSubline,
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "en_CA",
@@ -32,6 +30,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.descriptor,
     description: siteConfig.tagline,
+    images: [defaultOgImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.descriptor,
+    description: siteConfig.tagline,
+    images: [defaultOgImage.url],
   },
   robots: { index: true, follow: true },
   icons: {

@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CookiePreferencesButton } from "@/components/cookie-preferences-button";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Cookie Policy",
   description: "How TRBO FAST TOOLS INC uses cookies on turbofasttools.com.",
-};
+  path: "/cookie-policy",
+});
 
 export default function CookiePolicyPage() {
   return (
