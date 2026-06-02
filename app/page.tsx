@@ -1,24 +1,21 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import { ButtonLink } from "@/components/ui/button";
+import { FaqSectionLoader } from "@/components/lazy/faq-section-loader";
+import { PublishFormSectionLoader } from "@/components/lazy/publish-form-section-loader";
 import { GameCard, GameShowcaseRow, SectionHeading } from "@/components/game-card";
 import { FeltHeroPhone } from "@/components/phone-mockup";
-import { caseStudies, faqs, processSteps, services, whyTrbo } from "@/lib/content";
+import { caseStudies, faqs, marketingTools, marketingToolsSection, processSteps, services, whyTrbo } from "@/lib/content";
 import { felt, feltReviews } from "@/lib/felt";
-import { games, partnerShowcaseGames, primaryShowcaseGames } from "@/lib/games";
+import { moreAppsGames, partnerShowcaseGames, primaryShowcaseGames } from "@/lib/games";
 import { getBlogPosts } from "@/lib/content-loader";
 import { siteConfig } from "@/lib/site";
 
-const PublishFormSection = dynamic(
-  () => import("@/components/publish-form-section").then((m) => ({ default: m.PublishFormSection })),
-  { loading: () => <div className="min-h-[28rem] animate-pulse rounded-xl bg-surface/40" aria-hidden /> },
-);
 
-const FaqSection = dynamic(
-  () => import("@/components/faq-section").then((m) => ({ default: m.FaqSection })),
-  { loading: () => <div className="mt-10 min-h-64 animate-pulse rounded-xl bg-surface/40" aria-hidden /> },
-);
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   const posts = getBlogPosts().slice(0, 3);
@@ -53,18 +50,14 @@ export default function HomePage() {
       <section className="relative overflow-hidden px-4 pb-20 pt-16 sm:px-6">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,rgba(79,123,255,0.13),transparent_70%)]" />
         <div className="relative mx-auto max-w-4xl text-center">
-          <p className="inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+            We Build. <span className="text-accent">Publish.</span>{" "}
+            <span className="text-accent-2">Scale.</span>
+          </h1>
+          <p className="mt-6 inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
             {siteConfig.name} · Est. 2021
           </p>
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="bg-gradient-to-br from-foreground to-accent bg-clip-text text-transparent">
-              {siteConfig.tagline}
-            </span>
-          </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted">{siteConfig.descriptor}</p>
-          <p className="mx-auto mt-3 max-w-xl text-base text-muted">
-            We publish and grow apps with our internal platform, AI and human-in-the-loop workflows, and a mix of paid and organic distribution, on our own or with partners like Supercent, Voodoo, and Homa.
-          </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <ButtonLink href="/publish" size="lg">
               Submit your app
@@ -124,6 +117,32 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section id="tools" className="border-y border-border bg-surface/30 px-4 py-20 sm:px-6">
+        <div className="mx-auto max-w-6xl">
+          <SectionHeading
+            label={marketingToolsSection.label}
+            title={marketingToolsSection.title}
+            description={marketingToolsSection.description}
+          />
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {marketingTools.map((tool) => (
+              <a
+                key={tool.href}
+                href={tool.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex h-full flex-col rounded-2xl border border-border bg-card/60 p-6 transition hover:border-accent/40 hover:shadow-lg hover:shadow-black/20"
+              >
+                <p className="text-xs font-bold uppercase tracking-wider text-accent-2">{tool.tagline}</p>
+                <h3 className="mt-2 text-xl font-bold group-hover:text-accent">{tool.name}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{tool.description}</p>
+                <p className="mt-4 text-sm font-semibold text-accent">Visit platform →</p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="border-y border-border bg-surface/30 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionHeading label="Process" title="How it works" />
@@ -169,7 +188,7 @@ export default function HomePage() {
               ))}
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href="/felt">Learn more</ButtonLink>
+              <ButtonLink href="/felt">Learn more about Felt</ButtonLink>
               <ButtonLink href={felt.appStore} variant="outline">
                 App Store
               </ButtonLink>
@@ -206,7 +225,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl">
           <SectionHeading label="All apps" title="More apps by TRBO" />
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {games.map((game) => (
+            {moreAppsGames.map((game) => (
               <GameCard key={game.slug} game={game} />
             ))}
           </div>
@@ -218,18 +237,49 @@ export default function HomePage() {
           <SectionHeading label="Track record" title="Proven results" />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {caseStudies.map((cs) => (
-              <a
+              <article
                 key={cs.name}
-                href={cs.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-2xl border border-border bg-card/70 p-6 transition hover:border-accent/40"
+                className="rounded-2xl border border-border bg-card/70 p-6"
               >
-                <p className="text-xs font-bold uppercase text-accent">{cs.partner}</p>
-                <h3 className="mt-2 text-xl font-bold">{cs.name}</h3>
-                <p className="mt-2 text-sm text-muted">{cs.stat}</p>
+                <div className="flex items-start gap-4">
+                  <Image
+                    src={cs.icon}
+                    alt={cs.name}
+                    width={64}
+                    height={64}
+                    sizes="64px"
+                    className="rounded-xl shadow-lg"
+                  />
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold uppercase text-accent">{cs.partner}</p>
+                    <h3 className="mt-1 text-xl font-bold">{cs.name}</h3>
+                  </div>
+                </div>
+                <p className="mt-4 text-sm text-muted">{cs.stat}</p>
                 <p className="mt-1 text-sm font-medium">{cs.rating}</p>
-              </a>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {cs.appStore ? (
+                    <a
+                      href={cs.appStore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
+                    >
+                      App Store
+                    </a>
+                  ) : null}
+                  {cs.playStore ? (
+                    <a
+                      href={cs.playStore}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
+                    >
+                      Google Play
+                    </a>
+                  ) : null}
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -293,7 +343,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-3xl">
           <SectionHeading label="Partner with us" title="Submit your app" description="Share your app, stage, and links. We review submissions, validate our bar, and invite accepted apps to a publisher test and publishing agreement." />
           <div className="mt-10 rounded-2xl border border-border bg-card/50 p-6 sm:p-8">
-            <PublishFormSection />
+            <PublishFormSectionLoader />
           </div>
         </div>
       </section>
@@ -301,7 +351,7 @@ export default function HomePage() {
       <section className="border-t border-border bg-surface/20 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <SectionHeading label="FAQ" title="Common questions" />
-          <FaqSection />
+          <FaqSectionLoader />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

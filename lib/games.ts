@@ -17,32 +17,6 @@ export type Game = {
 };
 export const games: Game[] = [
   {
-    slug: "beach-hotel-simulator",
-    name: "Beach Hotel Simulator 3D",
-    genre: "Simulation",
-    blurb:
-      "Build and manage a stunning beachside hotel empire. Upgrade rooms, attract guests, and grow from a cozy inn into a 5-star luxury resort.",
-    icon: "/games/beach-hotel-simulator.jpg",
-    appStore: "https://apps.apple.com/us/app/beach-hotel-simulator-3d/id6746117443",
-    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.hotelsimulator",
-    partner: "Supercent",
-    featured: true,
-    stats: "500K+ installs · 4.7 rating",
-  },
-  {
-    slug: "my-beach-resort",
-    name: "My Beach Resort",
-    genre: "Idle Management",
-    blurb:
-      "From sun loungers to private yachts, design and run the ultimate tropical beach resort in this relaxing offline management sim.",
-    icon: "/games/my-beach-resort-play.jpg",
-    appStore: "https://apps.apple.com/us/app/my-beach-resort/id6636534055",
-    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.beachresort",
-    partner: "Supercent",
-    featured: true,
-    stats: "500K+ installs · 4.9 rating",
-  },
-  {
     slug: "city-connect",
     name: "City Connect",
     genre: "Idle Simulation",
@@ -66,6 +40,32 @@ export const games: Game[] = [
     playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.antkingdom",
     partner: "Supercent",
     showcase: true,
+  },
+  {
+    slug: "beach-hotel-simulator",
+    name: "Beach Hotel Simulator 3D",
+    genre: "Simulation",
+    blurb:
+      "Build and manage a stunning beachside hotel empire. Upgrade rooms, attract guests, and grow from a cozy inn into a 5-star luxury resort.",
+    icon: "/games/beach-hotel-simulator.jpg",
+    appStore: "https://apps.apple.com/us/app/beach-hotel-simulator-3d/id6746117443",
+    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.hotelsimulator",
+    partner: "Supercent",
+    showcase: true,
+    stats: "500K+ installs · 4.7 rating",
+  },
+  {
+    slug: "my-beach-resort",
+    name: "My Beach Resort",
+    genre: "Idle Management",
+    blurb:
+      "From sun loungers to private yachts, design and run the ultimate tropical beach resort in this relaxing offline management sim.",
+    icon: "/games/my-beach-resort-play.jpg",
+    appStore: "https://apps.apple.com/us/app/my-beach-resort/id6636534055",
+    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.beachresort",
+    partner: "Supercent",
+    showcase: true,
+    stats: "500K+ installs · 4.9 rating",
   },
   {
     slug: "army-invasion",
@@ -180,8 +180,17 @@ export const games: Game[] = [
   },
 ];
 
-const primaryShowcaseOrder = ["ant-kingdom", "army-invasion", "super-chess", "dice-soldier"] as const;
+const primaryShowcaseOrder = [
+  "ant-kingdom",
+  "beach-hotel-simulator",
+  "my-beach-resort",
+  "army-invasion",
+  "super-chess",
+  "dice-soldier",
+] as const;
 const partnerShowcaseOrder = ["mint-heroes", "desert-survival"] as const;
+
+const showcasedSlugs = new Set<string>([...primaryShowcaseOrder, ...partnerShowcaseOrder]);
 
 export const featuredGames = games.filter((g) => g.featured);
 export const primaryShowcaseGames = primaryShowcaseOrder
@@ -190,3 +199,5 @@ export const primaryShowcaseGames = primaryShowcaseOrder
 export const partnerShowcaseGames = partnerShowcaseOrder
   .map((slug) => games.find((g) => g.slug === slug))
   .filter((g): g is Game => Boolean(g));
+/** Apps not already shown in the portfolio showcase rows */
+export const moreAppsGames = games.filter((g) => !showcasedSlugs.has(g.slug));

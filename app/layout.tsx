@@ -11,6 +11,9 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
+  adjustFontFallback: true,
+  preload: true,
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -21,6 +24,9 @@ export const metadata: Metadata = {
   },
   description:
     "TRBO publishes and grows apps with AI-powered development, hybrid paid + organic distribution, and partner publishing through Supercent, Voodoo, and Homa.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_CA",
@@ -41,7 +47,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geistSans.variable} dark h-full`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground antialiased">
+      <body className={`${geistSans.variable} min-h-full flex flex-col bg-background text-foreground antialiased`}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

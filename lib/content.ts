@@ -60,27 +60,51 @@ export const whyTrbo = [
   "In-house and co-development. A cleaner model than typical agencies",
 ];
 
+export const marketingToolsSection = {
+  label: "Platforms",
+  title: "AI marketing tools",
+  description:
+    "AI-powered products we build to help businesses market, convert, and grow. More tools are on the way.",
+};
+
+export const marketingTools = [
+  {
+    name: "ConvertRoute",
+    tagline: "AI quiz funnels",
+    description:
+      "An AI quiz funnel builder for apps and websites. Ask smart questions, personalize each visit, and turn traffic into leads and sign-ups.",
+    href: "https://convertroute.com/",
+  },
+];
+
 export const caseStudies = [
   {
     name: "Beach Hotel Simulator 3D",
     partner: "Supercent",
     stat: "500K+ installs",
     rating: "4.7 App Store",
-    href: "https://apps.apple.com/us/app/beach-hotel-simulator-3d/id6746117443",
+    icon: "/games/beach-hotel-simulator.jpg",
+    appStore: "https://apps.apple.com/us/app/beach-hotel-simulator-3d/id6746117443",
+    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.hotelsimulator",
   },
   {
     name: "My Beach Resort",
     partner: "Supercent",
     stat: "500K+ installs",
     rating: "4.9 App Store",
-    href: "https://apps.apple.com/us/app/my-beach-resort/id6636534055",
+    icon: "/games/my-beach-resort-play.jpg",
+    appStore: "https://apps.apple.com/us/app/my-beach-resort/id6636534055",
+    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.beachresort",
   },
   {
     name: "City Connect",
     partner: "TRBO (self-published)",
     stat: "100K+ downloads",
     rating: "First 100K driven by us",
-    href: "https://play.google.com/store/apps/details?id=com.aredstudio.cityconnect.relax.story.connect.idle.simulation.management.country.state",
+    icon: "/games/city-connect-play.jpg",
+    appStore: "https://apps.apple.com/us/app/city-connect-idle-simulation/id6759379721",
+    playStore:
+      "https://play.google.com/store/apps/details?id=com.aredstudio.cityconnect.relax.story.connect.idle.simulation.management.country.state",
   },
 ];
 

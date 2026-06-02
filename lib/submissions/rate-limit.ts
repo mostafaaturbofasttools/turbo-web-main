@@ -1,5 +1,5 @@
-import { BlobServiceClient } from "@azure/storage-blob";
 import { createHash } from "node:crypto";
+import { azureBlobPath, getAzureContainer } from "@/lib/submissions/azure-storage";
 
 const RATE_WINDOW_MS = 60_000;
 
@@ -8,17 +8,6 @@ const memoryRateLimit = new Map<string, number>();
 
 function hashKey(key: string) {
   return createHash("sha256").update(key).digest("hex").slice(0, 32);
-}
-
-async function getContainer() {
-  const connectionString = process.env.AZURE_STORAGE_CONNECTION_STRING;
-  const containerName = process.env.AZURE_SUBMISSIONS_CONTAINER ?? "app-submissions";
-  if (!connectionString) return null;
-
-  const client = BlobServiceClient.fromConnectionString(connectionString);
-  const container = client.getContainerClient(containerName);
-  await container.createIfNotExists();
-  return container;
 }
 
 function checkMemoryRateLimit(key: string): boolean {
@@ -36,7 +25,7 @@ function checkMemoryRateLimit(key: string): boolean {
  * Uses Azure Blob markers in production so limits survive serverless cold starts.
  */
 export async function checkRateLimit(key: string): Promise<boolean> {
-  const container = await getContainer();
+  const container = await getAzureContainer();
 
   if (!container) {
     if (process.env.NODE_ENV === "production") {
@@ -46,7 +35,7 @@ export async function checkRateLimit(key: string): Promise<boolean> {
     return checkMemoryRateLimit(key);
   }
 
-  const blobName = `rate-limit/${hashKey(key)}.json`;
+  const blobName = azureBlobPath("rate-limit", `${hashKey(key)}.json`);
   const blob = container.getBlockBlobClient(blobName);
   const now = Date.now();
 
