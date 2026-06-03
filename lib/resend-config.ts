@@ -51,10 +51,10 @@ export function getResendConfig(): ResendConfig {
 export function formatResendError(error: {
   name?: string;
   message?: string;
-  statusCode?: number;
+  statusCode?: number | null;
 }): string {
   const parts = [
-    error.statusCode ? `status ${error.statusCode}` : null,
+    error.statusCode != null ? `status ${error.statusCode}` : null,
     error.name,
     error.message,
   ].filter(Boolean);
