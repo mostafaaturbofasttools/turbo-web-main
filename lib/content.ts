@@ -108,9 +108,9 @@ export const audiencePaths = [
 
 export const marketingToolsSection = {
   label: "TRBO Labs",
-  title: "Internal tools we build and dogfood",
+  title: "The growth tools we run in production",
   description:
-    "Products we build to test growth ideas in production. More labs are on the way as we expand the TRBO platform.",
+    "Tools we built for how we publish and grow apps. We use them on every TRBO app, and other businesses can buy the same products.",
 };
 
 export const marketingTools = [

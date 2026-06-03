@@ -1,9 +1,9 @@
 export const siteConfig = {
   name: "TRBO FAST TOOLS INC",
-  descriptor: "AI-native app publishing studio for consumer apps and games",
-  tagline: "We build, publish, and scale AI-native consumer apps.",
+  descriptor: "The AI-native app publishing & growth agency",
+  tagline: "We build, publish, and scale AI-native consumer apps and games.",
   heroSubline:
-    "TRBO combines product engineering, AI workflows, creative testing, UA experiments, and publisher partnerships to turn promising apps into scalable businesses.",
+    "We build our own AI systems, not wrappers. TRBO combines product engineering, creative testing, UA experiments, and publisher partnerships to turn promising apps into scalable businesses.",
   url: "https://www.turbofasttools.com",
   email: "info@turbofasttools.com",
   address: {
