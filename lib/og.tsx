@@ -1,8 +1,11 @@
 import { ImageResponse } from "next/og";
+import { siteConfig } from "@/lib/site";
 
 export const ogSize = { width: 1200, height: 630 };
 
 export function OgImage({ title, subtitle }: { title: string; subtitle?: string }) {
+  const logoUrl = `${siteConfig.url}/logo-512.png`;
+
   return new ImageResponse(
     (
       <div
@@ -22,19 +25,13 @@ export function OgImage({ title, subtitle }: { title: string; subtitle?: string 
           style={{
             display: "flex",
             alignItems: "center",
-            gap: 16,
+            gap: 20,
             marginBottom: 32,
           }}
         >
-          <div
-            style={{
-              width: 56,
-              height: 56,
-              borderRadius: 14,
-              background: "linear-gradient(135deg, #4f7bff, #a259ff)",
-            }}
-          />
-          <span style={{ fontSize: 22, fontWeight: 700, color: "#9aa3b5" }}>TRBO FAST TOOLS INC</span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={logoUrl} alt="" width={72} height={72} />
+          <span style={{ fontSize: 22, fontWeight: 700, color: "#9aa3b5" }}>{siteConfig.name}</span>
         </div>
         <div style={{ fontSize: 56, fontWeight: 800, lineHeight: 1.1, maxWidth: 900 }}>{title}</div>
         {subtitle ? (

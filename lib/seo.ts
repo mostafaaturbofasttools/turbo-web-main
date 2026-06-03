@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site";
 
 export const defaultOgImage = {
-  url: "/logo-512.png",
-  width: 512,
-  height: 512,
-  alt: `${siteConfig.name} logo`,
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: `${siteConfig.name} — ${siteConfig.descriptor}`,
 } as const;
 
 export function buildPageMetadata({
