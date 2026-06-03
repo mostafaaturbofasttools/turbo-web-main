@@ -10,6 +10,25 @@ const optionalUrl = (label: string) =>
 
 const optionalText = z.string().trim();
 
+export const contactTopics = [
+  { value: "app-publishing", label: "App publishing" },
+  { value: "publisher-partnership", label: "Publisher partnership" },
+  { value: "investment", label: "Investment or strategic partnership" },
+  { value: "co-development", label: "Co-development" },
+  { value: "growth-support", label: "Growth support" },
+  { value: "press", label: "Press or media" },
+  { value: "other", label: "Other" },
+] as const;
+
+const contactTopicValues = contactTopics.map((t) => t.value) as [
+  (typeof contactTopics)[number]["value"],
+  ...(typeof contactTopics)[number]["value"][],
+];
+
+export function contactTopicLabel(value: string): string {
+  return contactTopics.find((t) => t.value === value)?.label ?? value;
+}
+
 export const publishHelpOptions = [
   { value: "publishing", label: "Publishing & distribution" },
   { value: "ua", label: "User acquisition / UA" },
@@ -194,6 +213,7 @@ export const publishFormSchema = z
 export type PublishFormData = z.infer<typeof publishFormSchema>;
 
 export const contactFormSchema = z.object({
+  topic: z.enum(contactTopicValues, { message: "Select what you are contacting us about" }),
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Enter a valid email address"),
   message: z.string().min(10, "Message must be at least 10 characters"),
@@ -211,7 +231,11 @@ export type PublishFormActionResult =
 
 export type ContactFormActionResult =
   | { ok: true }
-  | { ok: false; error: FormFieldErrors; values: { name: string; email: string; message: string } };
+  | {
+      ok: false;
+      error: FormFieldErrors;
+      values: { topic: string; name: string; email: string; message: string };
+    };
 
 export type FormActionResult = PublishFormActionResult | ContactFormActionResult;
 

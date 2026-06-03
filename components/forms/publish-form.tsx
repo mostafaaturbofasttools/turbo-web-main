@@ -33,7 +33,9 @@ const FIELD_ORDER = [
 ] as const;
 
 function fieldClass(hasError: boolean) {
-  return hasError ? `${inputClass} border-red-400/70 focus:border-red-400` : inputClass;
+  return hasError
+    ? `${inputClass} border-red-400/70 focus:border-red-400`
+    : inputClass;
 }
 
 export function PublishForm() {
@@ -45,7 +47,9 @@ export function PublishForm() {
 
   useEffect(() => {
     if (state?.ok === true) {
-      document.getElementById("publish-form-result")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      document
+        .getElementById("publish-form-result")
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
       return;
     }
 
@@ -60,7 +64,9 @@ export function PublishForm() {
     }
 
     if (state.error.form?.[0]) {
-      document.querySelector("[data-form-error]")?.scrollIntoView({ behavior: "smooth", block: "center" });
+      document
+        .querySelector("[data-form-error]")
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   }, [state]);
 
@@ -76,11 +82,16 @@ export function PublishForm() {
 
   const values = state?.ok === false ? state.values : emptyPublishFormValues;
   const formKey = state?.ok === false ? state.attemptId : "initial";
-  const hasError = (name: string) => state?.ok === false && Boolean(state.error[name]?.[0]);
+  const hasError = (name: string) =>
+    state?.ok === false && Boolean(state.error[name]?.[0]);
 
   const fieldError = (name: string) =>
     state?.ok === false && state.error[name]?.[0] ? (
-      <p id={`${name}-error`} role="alert" className="mt-1 text-xs text-red-400">
+      <p
+        id={`${name}-error`}
+        role="alert"
+        className="mt-1 text-xs text-red-400"
+      >
         {state.error[name]?.[0]}
       </p>
     ) : null;
@@ -114,7 +125,10 @@ export function PublishForm() {
         </div>
 
         <div>
-          <label htmlFor="category" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="category"
+            className="mb-1.5 block text-sm font-medium"
+          >
             Category
             <RequiredMark />
           </label>
@@ -139,7 +153,10 @@ export function PublishForm() {
         </div>
 
         <div>
-          <label htmlFor="teamSize" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="teamSize"
+            className="mb-1.5 block text-sm font-medium"
+          >
             Team size
             <RequiredMark />
           </label>
@@ -189,7 +206,10 @@ export function PublishForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="appDescription" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="appDescription"
+            className="mb-1.5 block text-sm font-medium"
+          >
             What is your app about?
             <RequiredMark />
           </label>
@@ -206,7 +226,10 @@ export function PublishForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="traction" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="traction"
+            className="mb-1.5 block text-sm font-medium"
+          >
             Where is the app today?
             <RequiredMark />
           </label>
@@ -230,13 +253,16 @@ export function PublishForm() {
               <RequiredMark />
             </p>
             <p className="mt-1 text-xs text-muted">
-              At least one link is required. Use a full https URL. Leave any field blank if it does
-              not apply yet.
+              At least one link is required. Use a full https URL. Leave any
+              field blank if it does not apply yet.
             </p>
           </div>
 
           <div>
-            <label htmlFor="website" className="mb-1.5 block text-sm font-medium">
+            <label
+              htmlFor="website"
+              className="mb-1.5 block text-sm font-medium"
+            >
               Website
             </label>
             <input
@@ -254,7 +280,10 @@ export function PublishForm() {
           </div>
 
           <div>
-            <label htmlFor="appStoreUrl" className="mb-1.5 block text-sm font-medium">
+            <label
+              htmlFor="appStoreUrl"
+              className="mb-1.5 block text-sm font-medium"
+            >
               App Store link
             </label>
             <input
@@ -271,7 +300,10 @@ export function PublishForm() {
           </div>
 
           <div>
-            <label htmlFor="playStoreUrl" className="mb-1.5 block text-sm font-medium">
+            <label
+              htmlFor="playStoreUrl"
+              className="mb-1.5 block text-sm font-medium"
+            >
               Google Play link
             </label>
             <input
@@ -289,7 +321,10 @@ export function PublishForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="contactEmail" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="contactEmail"
+            className="mb-1.5 block text-sm font-medium"
+          >
             Contact email
             <RequiredMark />
           </label>
@@ -310,12 +345,16 @@ export function PublishForm() {
         <div className="sm:col-span-2 border-t border-border pt-4">
           <p className="text-sm font-medium">Optional metrics</p>
           <p className="mt-1 text-xs text-muted">
-            Share what you have. These fields help us review faster but are not required.
+            Share what you have. These fields help us review faster but are not
+            required.
           </p>
         </div>
 
         <div>
-          <label htmlFor="currentDownloads" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="currentDownloads"
+            className="mb-1.5 block text-sm font-medium"
+          >
             Current downloads
           </label>
           <input
@@ -330,7 +369,10 @@ export function PublishForm() {
         </div>
 
         <div>
-          <label htmlFor="monthlyRevenue" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="monthlyRevenue"
+            className="mb-1.5 block text-sm font-medium"
+          >
             Monthly revenue
           </label>
           <input
@@ -345,7 +387,10 @@ export function PublishForm() {
         </div>
 
         <div>
-          <label htmlFor="d1Retention" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="d1Retention"
+            className="mb-1.5 block text-sm font-medium"
+          >
             D1 retention
           </label>
           <input
@@ -360,7 +405,10 @@ export function PublishForm() {
         </div>
 
         <div>
-          <label htmlFor="d7Retention" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="d7Retention"
+            className="mb-1.5 block text-sm font-medium"
+          >
             D7 retention
           </label>
           <input
@@ -375,7 +423,10 @@ export function PublishForm() {
         </div>
 
         <div>
-          <label htmlFor="cpiCacTested" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="cpiCacTested"
+            className="mb-1.5 block text-sm font-medium"
+          >
             CPI / CAC tested
           </label>
           <input
@@ -390,7 +441,10 @@ export function PublishForm() {
         </div>
 
         <div>
-          <label htmlFor="targetCountries" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="targetCountries"
+            className="mb-1.5 block text-sm font-medium"
+          >
             Target countries
           </label>
           <input
@@ -405,7 +459,10 @@ export function PublishForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="testFlightLink" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="testFlightLink"
+            className="mb-1.5 block text-sm font-medium"
+          >
             TestFlight / APK link
           </label>
           <input
@@ -425,7 +482,10 @@ export function PublishForm() {
           <p className="mb-2 text-sm font-medium">Help needed (optional)</p>
           <div className="grid gap-2 sm:grid-cols-2">
             {publishHelpOptions.map((option) => (
-              <label key={option.value} className="flex items-center gap-2 text-sm text-muted">
+              <label
+                key={option.value}
+                className="flex items-center gap-2 text-sm text-muted"
+              >
                 <input
                   type="checkbox"
                   name="helpNeeded"
@@ -441,7 +501,10 @@ export function PublishForm() {
         </div>
 
         <div className="sm:col-span-2">
-          <label htmlFor="revenueShareOpen" className="mb-1.5 block text-sm font-medium">
+          <label
+            htmlFor="revenueShareOpen"
+            className="mb-1.5 block text-sm font-medium"
+          >
             Open to revenue share?
             <RequiredMark />
           </label>

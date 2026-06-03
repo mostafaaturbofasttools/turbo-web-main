@@ -57,19 +57,19 @@ export const growthEngineModules = [
     description: "Run structured paid and organic tests to find channels and messages that convert.",
   },
   {
-    name: "ASO + Store Optimization",
+    name: "ASO & Store Positioning",
     description: "Improve store listings, keywords, and screenshots based on data, not guesswork.",
   },
   {
-    name: "Retention / LTV Dashboard",
-    description: "Monitor D1, D7, and D28 retention alongside revenue signals to guide product and growth decisions.",
+    name: "Product Analysis",
+    description: "Review funnels, onboarding, and engagement with AI and operators to spot what to fix next.",
   },
   {
-    name: "AI Product Analysis",
-    description: "Use AI-assisted review of funnels, onboarding, and engagement to spot what to fix next.",
+    name: "Retention & Monetization Review",
+    description: "Read retention and revenue signals together to guide product and growth decisions.",
   },
   {
-    name: "Human-in-the-loop Review",
+    name: "Human-in-the-loop Strategy",
     description: "Operator judgment on every major decision. AI speeds the work and humans own the call.",
   },
 ];

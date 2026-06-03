@@ -17,7 +17,10 @@ export default function ContactPage() {
       <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
         <div>
           <h1 className="text-3xl font-bold">Contact us</h1>
-          <p className="mt-4 text-muted">We would love to hear about your app or partnership idea.</p>
+          <p className="mt-4 text-muted">
+            Tell us what you are reaching out about. We route app publishing, partnerships, growth support,
+            and other inquiries to the right team.
+          </p>
           <div className="mt-8 space-y-4 text-sm text-muted">
             <p>
               <span className="font-semibold text-foreground">Email</span>

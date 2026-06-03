@@ -3,13 +3,13 @@ title: Games Privacy Policy
 updated: 2026-06-02
 ---
 
-# Privacy Policy
+This policy applies to TRBO mobile games and game-related features. For our website, publishing forms, and non-game apps, see our [Privacy Policy](/privacy-policy).
 
-Thank you for choosing to be part of our community at TRBO FAST TOOLS INC. (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regards to your personal information, please contact us at info@turbofasttools.com
+Thank you for choosing to be part of our community at TRBO FAST TOOLS INC. (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regards to your personal information, please contact us at games@turbofasttools.com
 
 When you use our mobile application, as the case may be (the &quot;APPS&quot;) and more generally, use any of our services (the &quot;Services&quot;, which include the App), we take your privacy very seriously. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy notice that you do not agree with, please discontinue use of our Services immediately.
 
-This policy is subject to our Terms of Use, which can be accessed here, and is incorporated into them
+This policy is subject to our [Games Terms & Conditions](/games-terms-conditions) and [Terms & Conditions](/terms-conditions), which are incorporated by reference.
 
 This privacy notice applies to all information collected through our Services (which, as described above, includes our App), as well as, any related services, sales, marketing or events.
 
@@ -142,7 +142,7 @@ You should be aware that getting a new computer, installing a new browser, upgra
 
 CHILDREN UNDER THE AGE OF 13
 
-​Our service is not intended for children under 13 years of age. No one under the age of 13 may provide any personal information to, or on, the Website. We do not knowingly collect personal information from children under 13. If you are under 13, do not use or provide any information on this Website, or through any of its features/functionality, make any purchases through the Website, use any of the interactive or public comment features that may be available on this Website, or provide any information about yourself to us, including your name, address, telephone number, e-mail address or any screen name or username you may use. If we learn that we have collected or received personal information from a child under 13 without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under 13, please contact us at info@turbofasttools.com.
+​Our service is not intended for children under 13 years of age. No one under the age of 13 may provide any personal information to, or on, the Website. We do not knowingly collect personal information from children under 13. If you are under 13, do not use or provide any information on this Website, or through any of its features/functionality, make any purchases through the Website, use any of the interactive or public comment features that may be available on this Website, or provide any information about yourself to us, including your name, address, telephone number, e-mail address or any screen name or username you may use. If we learn that we have collected or received personal information from a child under 13 without verification of parental consent, we will delete that information. If you believe we might have any information from or about a child under 13, please contact us at games@turbofasttools.com.
 
 IS YOUR INFORMATION TRANSFERRED INTERNATIONALLY?
 In Short: We may transfer, store, and process your information in countries other than your own.
@@ -164,7 +164,7 @@ Go to the application, open settings, go to Terms of Service section, and by sel
 
 Upon your request to terminate your account in the Terms of Service section in the relevant TRBO application, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our Terms of Use, and/or comply with applicable legal requirements.
 
-To make inquiries, exercise any of your rights set out in this Privacy Policy, and/or make a complaint please contact us at: info@turbofasttools.com
+To make inquiries, exercise any of your rights set out in this Privacy Policy, and/or make a complaint please contact us at: games@turbofasttools.com
 
 NOTICE TO USERS FROM THE EUROPEAN ECONOMIC AREA
 
@@ -175,8 +175,6 @@ In Short: Yes, we will update this notice as necessary to stay compliant with re
 We may update this privacy notice from time to time. The updated version will be indicated by an updated &quot;Revised&quot; date and the updated version will be effective as soon as it is accessible. If we make material changes to this privacy notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this privacy notice frequently to be informed of how we are protecting your information.
 
 HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
-If you have questions or comments about this notice, you may email us at info@turbofasttools.com
+If you have questions or comments about this notice, you may email us at games@turbofasttools.com
 
-​Copyright &copy; TRBO FAST TOOLS INC.
-
-Terms & ConditionsPrivacy Policy- 
+Copyright &copy; TRBO FAST TOOLS INC.

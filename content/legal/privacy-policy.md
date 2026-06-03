@@ -3,13 +3,13 @@ title: Privacy Policy
 updated: 2026-06-02
 ---
 
-# Privacy Policy
+This Privacy Policy applies to our website at [turbofasttools.com](https://www.turbofasttools.com), publishing and contact forms, and TRBO mobile applications. For games-specific practices, see our [Games Privacy Policy](/games-privacy-policy).
 
 Thank you for choosing to be part of our community at TRBO FAST TOOLS INC. (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regards to your personal information, please contact us at info@turbofasttools.com
 
 When you use our mobile application, as the case may be (the &quot;APPS&quot;) and more generally, use any of our services (the &quot;Services&quot;, which include the App), we take your privacy very seriously. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy notice that you do not agree with, please discontinue use of our Services immediately.
 
-This policy is subject to our Terms of Use, which can be accessed here, and is incorporated into them
+This policy is subject to our [Terms & Conditions](/terms-conditions) and [Cookie Policy](/cookie-policy), which are incorporated by reference.
 
 This privacy notice applies to all information collected through our Services (which, as described above, includes our App), as well as, any related services, sales, marketing or events.
 
@@ -42,7 +42,7 @@ Information provided directly by the data subject or a authorized representative
 
 The APPS 
 
-using forms and/or emails. 
+using forms and/or emails (including our publish and contact forms on the website). 
 
 When contracting services offered within the APPS.
 
@@ -129,6 +129,4 @@ We may update this privacy notice from time to time. The updated version will be
 HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
 If you have questions or comments about this notice, you may email us at info@turbofasttools.com
 
-​Copyright &copy; TRBO FAST TOOLS INC.
-
-Terms & ConditionsPrivacy Policy- 
+Copyright &copy; TRBO FAST TOOLS INC.

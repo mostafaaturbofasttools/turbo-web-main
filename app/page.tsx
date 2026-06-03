@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button-link";
-import { HorizontalScrollItem, HorizontalScrollRow } from "@/components/ui/horizontal-scroll";
+import {
+  HorizontalScrollItem,
+  HorizontalScrollRow,
+} from "@/components/ui/horizontal-scroll";
 import { FaqSection } from "@/components/faq-section";
 import { PublishFormSectionLoader } from "@/components/lazy/publish-form-section-loader";
-import { GameCard, GameShowcaseRow, SectionHeading } from "@/components/game-card";
+import {
+  GameCard,
+  GameShowcaseRow,
+  SectionHeading,
+} from "@/components/game-card";
 import { FeltHeroPhone } from "@/components/phone-mockup";
 import {
   audiencePaths,
@@ -21,7 +28,11 @@ import {
   whyTrbo,
 } from "@/lib/content";
 import { felt } from "@/lib/felt";
-import { moreAppsGames, partnerShowcaseGames, primaryShowcaseGames } from "@/lib/games";
+import {
+  moreAppsGames,
+  partnerShowcaseGames,
+  primaryShowcaseGames,
+} from "@/lib/games";
 import { getBlogPosts } from "@/lib/content-loader";
 import { siteConfig } from "@/lib/site";
 
@@ -109,8 +120,12 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
             {heroStats.map((stat) => (
               <div key={stat.label} className="bg-card px-4 py-6">
-                <div className="text-2xl font-black sm:text-3xl">{stat.value}</div>
-                <div className="mt-1 text-xs text-muted sm:text-sm">{stat.label}</div>
+                <div className="text-2xl font-black sm:text-3xl">
+                  {stat.value}
+                </div>
+                <div className="mt-1 text-xs text-muted sm:text-sm">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -119,8 +134,12 @@ export default function HomePage() {
 
       <section className="border-y border-border bg-surface/40 px-4 py-10 sm:px-6">
         <div className="mx-auto flex max-w-4xl flex-col items-center gap-3 text-center">
-          <p className="text-xs font-bold uppercase tracking-wider text-muted">In collaboration with</p>
-          <p className="max-w-xl text-sm text-muted">{siteConfig.partnerHighlight}</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-muted">
+            In collaboration with
+          </p>
+          <p className="max-w-xl text-sm text-muted">
+            {siteConfig.partnerHighlight}
+          </p>
           <div className="flex flex-wrap justify-center gap-3">
             {siteConfig.partners.map((p, i) => (
               <span
@@ -151,7 +170,9 @@ export default function HomePage() {
                 <article className="h-full rounded-2xl border border-border bg-card/60 p-6">
                   <p className="text-xs font-bold text-accent">{s.number}</p>
                   <h3 className="mt-2 text-lg font-bold">{s.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{s.description}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {s.description}
+                  </p>
                 </article>
               </HorizontalScrollItem>
             ))}
@@ -159,19 +180,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="growth-engine" className="border-y border-border bg-surface/30 px-4 py-20 sm:px-6">
+      <section
+        id="growth-engine"
+        className="border-y border-border bg-surface/30 px-4 py-20 sm:px-6"
+      >
         <div className="mx-auto max-w-6xl">
           <SectionHeading
             label="TRBO Growth Engine"
-            title="How we operate at scale"
-            description="Our in-house platform powers how we analyze, test, and grow every app we publish."
+            title="Our internal operating system for growth"
+            description="TRBO Growth Engine is our internal operating system for helping apps grow. It combines AI tools, human review, creative testing, market research, product analysis, and publishing workflows."
           />
           <HorizontalScrollRow className="mt-12">
             {growthEngineModules.map((mod) => (
               <HorizontalScrollItem key={mod.name}>
                 <article className="h-full rounded-2xl border border-border bg-card/60 p-6">
                   <h3 className="text-lg font-bold">{mod.name}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{mod.description}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    {mod.description}
+                  </p>
                 </article>
               </HorizontalScrollItem>
             ))}
@@ -189,63 +215,78 @@ export default function HomePage() {
           <HorizontalScrollRow className="mt-12">
             {caseStudies.map((cs) => (
               <HorizontalScrollItem key={cs.slug} width="wide">
-              <article className="flex h-full min-h-[28rem] flex-col rounded-2xl border border-border bg-card/70 p-6">
-                <div className="flex items-start gap-4">
-                  <Image
-                    src={cs.icon}
-                    alt={cs.name}
-                    width={64}
-                    height={64}
-                    sizes="64px"
-                    className="rounded-xl shadow-lg"
-                  />
-                  <div className="min-w-0">
-                    <p className="text-xs font-bold uppercase text-accent">{cs.partner}</p>
-                    <h3 className="mt-1 text-xl font-bold">{cs.name}</h3>
+                <article className="flex h-full min-h-[28rem] flex-col rounded-2xl border border-border bg-card/70 p-6">
+                  <div className="flex items-start gap-4">
+                    <Image
+                      src={cs.icon}
+                      alt={cs.name}
+                      width={64}
+                      height={64}
+                      sizes="64px"
+                      className="rounded-xl shadow-lg"
+                    />
+                    <div className="min-w-0">
+                      <p className="text-xs font-bold uppercase text-accent">
+                        {cs.partner}
+                      </p>
+                      <h3 className="mt-1 text-xl font-bold">{cs.name}</h3>
+                    </div>
                   </div>
-                </div>
-                <p className="mt-4 text-sm font-semibold text-foreground">{cs.headline}</p>
-                <p className="mt-2 text-sm text-muted">{cs.problem}</p>
-                <div className="mt-4">
-                  <p className="text-xs font-bold uppercase tracking-wider text-muted">What TRBO did</p>
-                  <ul className="mt-2 space-y-1.5">
-                    {cs.trboRole.map((item) => (
-                      <li key={item} className="flex gap-2 text-sm text-muted">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <p className="mt-4 text-sm font-medium text-accent">{cs.result}</p>
-                <div className="mt-auto flex flex-wrap gap-2 pt-4">
-                  {"productPage" in cs && cs.productPage ? (
-                    <ButtonLink href={cs.productPage} variant="outline" size="sm">
-                      Learn more
-                    </ButtonLink>
-                  ) : null}
-                  {cs.appStore ? (
-                    <a
-                      href={cs.appStore}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
-                    >
-                      App Store
-                    </a>
-                  ) : null}
-                  {cs.playStore ? (
-                    <a
-                      href={cs.playStore}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
-                    >
-                      Google Play
-                    </a>
-                  ) : null}
-                </div>
-              </article>
+                  <p className="mt-4 text-sm font-semibold text-foreground">
+                    {cs.headline}
+                  </p>
+                  <p className="mt-2 text-sm text-muted">{cs.problem}</p>
+                  <div className="mt-4">
+                    <p className="text-xs font-bold uppercase tracking-wider text-muted">
+                      What TRBO did
+                    </p>
+                    <ul className="mt-2 space-y-1.5">
+                      {cs.trboRole.map((item) => (
+                        <li
+                          key={item}
+                          className="flex gap-2 text-sm text-muted"
+                        >
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <p className="mt-4 text-sm font-medium text-accent">
+                    {cs.result}
+                  </p>
+                  <div className="mt-auto flex flex-wrap gap-2 pt-4">
+                    {"productPage" in cs && cs.productPage ? (
+                      <ButtonLink
+                        href={cs.productPage}
+                        variant="outline"
+                        size="sm"
+                      >
+                        Learn more
+                      </ButtonLink>
+                    ) : null}
+                    {cs.appStore ? (
+                      <a
+                        href={cs.appStore}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
+                      >
+                        App Store
+                      </a>
+                    ) : null}
+                    {cs.playStore ? (
+                      <a
+                        href={cs.playStore}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
+                      >
+                        Google Play
+                      </a>
+                    ) : null}
+                  </div>
+                </article>
               </HorizontalScrollItem>
             ))}
           </HorizontalScrollRow>
@@ -295,7 +336,9 @@ export default function HomePage() {
       <section className="border-y border-border bg-gradient-to-br from-card via-background to-[#12102a] px-4 py-20 sm:px-6">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-accent-2">Our app</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-accent-2">
+              Our app
+            </p>
             <h2 className="mt-2 text-3xl font-bold sm:text-4xl">{felt.name}</h2>
             <p className="mt-2 text-sm text-accent">
               ★ {felt.rating} · {felt.ratingsCount} ratings · {felt.category}
@@ -304,7 +347,10 @@ export default function HomePage() {
             <p className="mt-2 text-sm text-muted">{felt.heroSubtitle}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {felt.features.map((f) => (
-                <span key={f} className="rounded-full border border-border bg-surface/80 px-3 py-1 text-xs">
+                <span
+                  key={f}
+                  className="rounded-full border border-border bg-surface/80 px-3 py-1 text-xs"
+                >
                   {f}
                 </span>
               ))}
@@ -330,7 +376,9 @@ export default function HomePage() {
                 className="flex flex-col rounded-2xl border border-border bg-card/60 p-8"
               >
                 <h3 className="text-xl font-bold">{path.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{path.description}</p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                  {path.description}
+                </p>
                 <div className="mt-6">
                   <ButtonLink href={path.href}>{path.cta}</ButtonLink>
                 </div>
@@ -340,7 +388,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="labs" className="border-y border-border bg-surface/30 px-4 py-20 sm:px-6">
+      <section
+        id="labs"
+        className="border-y border-border bg-surface/30 px-4 py-20 sm:px-6"
+      >
         <div className="mx-auto max-w-6xl">
           <SectionHeading
             label={marketingToolsSection.label}
@@ -357,12 +408,18 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="group flex flex-col rounded-2xl border border-border bg-card/60 p-8 transition hover:border-accent/40 hover:shadow-lg hover:shadow-black/20"
                 >
-                  <p className="text-xs font-bold uppercase tracking-wider text-accent-2">{tool.tagline}</p>
-                  <h3 className="mt-2 text-2xl font-bold group-hover:text-accent">{tool.name}</h3>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent-2">
+                    {tool.tagline}
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold group-hover:text-accent">
+                    {tool.name}
+                  </h3>
                   <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
                     {tool.description}
                   </p>
-                  <p className="mt-6 text-sm font-semibold text-accent">Visit platform →</p>
+                  <p className="mt-6 text-sm font-semibold text-accent">
+                    Visit platform →
+                  </p>
                 </a>
               ))}
             </div>
@@ -376,10 +433,18 @@ export default function HomePage() {
                   rel="noopener noreferrer"
                   className="group flex h-full flex-col rounded-2xl border border-border bg-card/60 p-6 transition hover:border-accent/40 hover:shadow-lg hover:shadow-black/20"
                 >
-                  <p className="text-xs font-bold uppercase tracking-wider text-accent-2">{tool.tagline}</p>
-                  <h3 className="mt-2 text-xl font-bold group-hover:text-accent">{tool.name}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{tool.description}</p>
-                  <p className="mt-4 text-sm font-semibold text-accent">Visit platform →</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent-2">
+                    {tool.tagline}
+                  </p>
+                  <h3 className="mt-2 text-xl font-bold group-hover:text-accent">
+                    {tool.name}
+                  </h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                    {tool.description}
+                  </p>
+                  <p className="mt-4 text-sm font-semibold text-accent">
+                    Visit platform →
+                  </p>
                 </a>
               ))}
             </div>
@@ -413,7 +478,10 @@ export default function HomePage() {
           />
           <ul className="mt-10 space-y-4">
             {whyTrbo.map((item) => (
-              <li key={item} className="flex gap-3 rounded-xl border border-border bg-card/50 px-5 py-4 text-sm text-muted">
+              <li
+                key={item}
+                className="flex gap-3 rounded-xl border border-border bg-card/50 px-5 py-4 text-sm text-muted"
+              >
                 <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
                 {item}
               </li>
@@ -441,7 +509,9 @@ export default function HomePage() {
               </a>
               , {siteConfig.founder.title}
             </p>
-            <p className="mt-1 text-sm font-medium text-accent">{siteConfig.founder.role}</p>
+            <p className="mt-1 text-sm font-medium text-accent">
+              {siteConfig.founder.role}
+            </p>
             <p className="mt-2 text-sm text-muted">
               <a
                 href={siteConfig.founder.linkedIn}
@@ -502,9 +572,13 @@ export default function HomePage() {
             {productProof.map((item) => (
               <HorizontalScrollItem key={item.name}>
                 <article className="h-full rounded-2xl border border-border bg-card/60 p-6">
-                  <p className="text-xs font-bold uppercase tracking-wider text-accent">{item.name}</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">
+                    {item.name}
+                  </p>
                   <h3 className="mt-2 text-lg font-bold">{item.tagline}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{item.proof}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    {item.proof}
+                  </p>
                 </article>
               </HorizontalScrollItem>
             ))}
@@ -536,8 +610,12 @@ export default function HomePage() {
                   <p className="text-xs text-muted">
                     {formatBlogDate(post.date)} · {post.readingTime}
                   </p>
-                  <h3 className="mt-2 text-lg font-bold group-hover:text-accent">{post.title}</h3>
-                  <p className="mt-2 line-clamp-2 text-sm text-muted">{post.description}</p>
+                  <h3 className="mt-2 text-lg font-bold group-hover:text-accent">
+                    {post.title}
+                  </h3>
+                  <p className="mt-2 line-clamp-2 text-sm text-muted">
+                    {post.description}
+                  </p>
                 </div>
               </Link>
             ))}
@@ -550,7 +628,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="publish" className="border-t border-border px-4 py-20 sm:px-6 scroll-mt-20">
+      <section
+        id="publish"
+        className="border-t border-border px-4 py-20 sm:px-6 scroll-mt-20"
+      >
         <div className="mx-auto max-w-3xl">
           <SectionHeading
             label="Partner with us"

@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import {
   contactFormSchema,
+  contactTopicLabel,
   parsePublishFormValues,
   publishFormSchema,
   type ContactFormActionResult,
@@ -139,6 +140,7 @@ export async function submitPublishForm(formData: FormData): Promise<PublishForm
 
 export async function submitContactForm(formData: FormData): Promise<ContactFormActionResult> {
   const values = {
+    topic: String(formData.get("topic") ?? "").trim(),
     name: String(formData.get("name") ?? "").trim(),
     email: String(formData.get("email") ?? "").trim(),
     message: String(formData.get("message") ?? "").trim(),
@@ -164,11 +166,12 @@ export async function submitContactForm(formData: FormData): Promise<ContactForm
     data: Object.fromEntries(Object.entries(parsed.data).map(([k, v]) => [k, String(v)])),
   };
 
-  const body = `Name: ${parsed.data.name}\nEmail: ${parsed.data.email}\n\n${parsed.data.message}`;
+  const topicLabel = contactTopicLabel(parsed.data.topic);
+  const body = `Topic: ${topicLabel}\nName: ${parsed.data.name}\nEmail: ${parsed.data.email}\n\n${parsed.data.message}`;
 
   const [saved, emailed] = await Promise.all([
     persistSubmission(payload),
-    sendEmail(`Contact from ${parsed.data.name}`, body),
+    sendEmail(`Contact (${topicLabel}): ${parsed.data.name}`, body),
   ]);
 
   if (process.env.NODE_ENV === "production" && !saved && !emailed) {
