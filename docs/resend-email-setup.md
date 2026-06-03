@@ -9,9 +9,11 @@ Form submissions call Resend from `app/actions/forms.ts`. A **403** almost alway
 | **Verified in Resend** | `contact.turbofasttools.com` |
 | **Not verified (root)** | `turbofasttools.com` alone |
 
-So **`RESEND_FROM` must use `@contact.turbofasttools.com`**, not `info@turbofasttools.com`.
+So the **`from`** address must use **`@contact.turbofasttools.com`**, not `info@turbofasttools.com`.
 
-**Recipient (`to`)** can be any inbox, e.g. `info@turbofasttools.com` or `mostafaa@turbofasttools.com`.
+**Auto-correction:** `lib/resend-config.ts` now forces the `from` onto the verified domain. If `RESEND_FROM` is set to a non-verified domain (e.g. `info@turbofasttools.com`), the code keeps the local part and rewrites it to `info@contact.turbofasttools.com` so it can't 403. If `RESEND_FROM` is unset, it defaults to `TRBO Website <notifications@contact.turbofasttools.com>`. Setting `RESEND_FROM` correctly is still recommended so the address is exactly what you want.
+
+**Recipient (`to`)** can be any inbox, e.g. `info@turbofasttools.com` or `mostafaa@turbofasttools.com`. Recipients do **not** need to be on the verified domain.
 
 ## Vercel env (copy exactly, one line each)
 
@@ -66,8 +68,9 @@ Root `@turbofasttools.com` is not verified—only **`contact.turbofasttools.com`
 
 | Mode | `RESEND_FROM` | `SUBMISSIONS_EMAIL_TO` |
 |------|----------------|-------------------------|
-| Quick test | *(unset)* → `onboarding@resend.dev` | `mostafaa@turbofasttools.com` |
+| Default (no env) | *(unset)* → `notifications@contact.turbofasttools.com` | `info@turbofasttools.com` |
 | Production | `TRBO Website <notifications@contact.turbofasttools.com>` | `info@turbofasttools.com` (or your inbox) |
+| Sandbox test | `Resend <onboarding@resend.dev>` | `mostafaa@turbofasttools.com` (your Resend account email only) |
 
 ## Checklist
 
