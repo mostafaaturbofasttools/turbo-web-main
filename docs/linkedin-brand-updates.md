@@ -15,10 +15,10 @@ Use this document to manually update your [LinkedIn company page](https://ca.lin
 | **Descriptor** | The AI-native app publishing & growth agency |
 | **Hero H1** | We Build. Publish. Scale. |
 | **Tagline (meta / OG)** | We build, publish, and scale AI-native consumer apps and games. |
-| **Hero subline** | We build our own AI systems, not wrappers. TRBO combines product engineering, creative testing, UA experiments, and publisher partnerships to turn promising apps into scalable businesses. |
+| **Hero subline** | TRBO combines product engineering, creative testing, UA experiments, and publisher partnerships with our in-house platform to turn promising apps into scalable businesses. |
 | **LinkedIn tagline (≤120 chars)** | The AI-native app publishing & growth agency · We Build. Publish. Scale. |
 
-**What “AI-native” means (use in About if helpful):** TRBO builds its own AI systems and workflows. Not a thin wrapper around someone else’s API.
+**What “AI-native” means (use in About if helpful):** TRBO builds and runs its own in-house platform and AI workflows end to end.
 
 **Proof points:** **2M+ downloads** · **16+ apps** · **4.5 avg rating** · **$1M+ revenue generated** · Supercent / Voodoo / Homa · **Felt** (TRBO-owned) · **TRBO Growth Engine** · **TRBO Labs** (ConvertRoute)
 
@@ -92,7 +92,7 @@ AI-native publishing & growth — 2M+ downloads · 16+ apps · $1M+ revenue
 **Recommended (copy-paste):**
 
 ```
-TRBO FAST TOOLS INC is an AI-native app publishing and growth agency in Vancouver, Canada. We build our own AI systems and workflows, not wrappers around third-party tools.
+TRBO FAST TOOLS INC is an AI-native app publishing and growth agency in Vancouver, Canada. We run an in-house platform that blends AI with human-in-the-loop workflows.
 
 We help consumer apps and games reach the market and scale. We self-publish, co-publish with partners like Supercent, Voodoo, and Homa, and run hybrid paid and organic growth for titles we take on.
 
@@ -196,7 +196,7 @@ We’ve refreshed how we show up: TRBO is the AI-native app publishing & growth 
 
 We Build. Publish. Scale.
 
-We build our own AI systems, not wrappers. 2M+ downloads. 16+ apps. $1M+ revenue generated. From Felt – AI Journal Buddy to games with partners like Supercent, Voodoo, and Homa.
+2M+ downloads. 16+ apps. $1M+ revenue generated. From Felt – AI Journal Buddy to games with partners like Supercent, Voodoo, and Homa.
 
 Developers → turbofasttools.com/publish
 Partners → turbofasttools.com/contact
@@ -221,7 +221,7 @@ Use the same language on LinkedIn posts as on the site:
 |--------------|--------|---------------------|
 | Hero | `/` | AI-native agency · We Build. Publish. Scale. |
 | Services | `/#services` | Publishing, hybrid growth, rapid dev, competitive analysis, data-driven creatives |
-| Growth Engine | `/#growth-engine` | In-house modules: Market Radar, Creative Factory, UA, ASO, retention, human-in-the-loop |
+| Growth Engine | `/#growth-engine` | In-house platform: Market Radar, Creative Factory, UA, ASO, retention, human-in-the-loop |
 | Case studies | `/#case-studies` | My Beach Resort, Beach Hotel Simulator 3D, City Connect, Felt (no confidential CPI/retention metrics in public posts) |
 | TRBO Labs | `/#labs` | Production tools we also sell (ConvertRoute) |
 | Submit | `/publish` | Publisher test → publishing agreement for qualified apps |
@@ -267,7 +267,7 @@ Use the same language on LinkedIn posts as on the site:
 | Felt | Product lab / pitch framing | **AI journal buddy** — consumer app |
 | Proof | Vague “over a decade” | **2M+ downloads**, **16+ apps**, **$1M+**, **4.5 rating**, named partners |
 | Hero year | Est. 2021 (old site) | **2022** on homepage badge |
-| AI claim | AI-powered (vague) | **AI-native** — built in-house, not wrappers |
+| AI claim | AI-powered (vague) | **AI-native** — in-house platform and workflows |
 
 ---
 

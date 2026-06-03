@@ -164,7 +164,7 @@ export default function HomePage() {
           <SectionHeading
             label="TRBO Growth Engine"
             title="How we operate at scale"
-            description="Internal modules we use every day to analyze, test, and grow consumer apps. This is how TRBO runs publishing."
+            description="Our in-house platform powers how we analyze, test, and grow every app we publish."
           />
           <HorizontalScrollRow className="mt-12">
             {growthEngineModules.map((mod) => (

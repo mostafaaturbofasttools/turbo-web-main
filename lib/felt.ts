@@ -3,13 +3,13 @@ export const felt = {
   tagline: "Your AI journal buddy",
   heroTitle: "Journal more. Know yourself better.",
   heroSubtitle:
-    "Felt helps you build a real journaling habit. The more you write, the clearer your own patterns become.",
+    "Felt helps you build a real journaling habit. Privacy-first by design. The more you write, the clearer your own patterns become.",
   heroQuote:
     "Over time, Mentora learns you too. A buddy who understands your story can help you work through what you are facing.",
   description:
-    "Felt is an AI journal buddy for daily reflection. Journal with text or voice, track mood, and look back on what you have written. Mentora learns from your entries over time and offers guidance that feels personal, so you understand yourself better and can move forward with more confidence.",
+    "Felt is a privacy-first AI journal buddy for daily reflection. Journal with text or voice, track mood, and look back on what you have written. Mentora learns from your entries over time and offers guidance that feels personal, so you understand yourself better and can move forward with more confidence.",
   homepageIntro:
-    "Felt is your AI journal buddy that learns you over time. Journal with text or voice, track mood, and look back on your entries. Mentora remembers your story so guidance feels personal, not generic.",
+    "Felt is your AI journal buddy, privacy-first by design. It learns you over time. Journal with text or voice, track mood, and look back on your entries. Mentora remembers your story so guidance feels personal, not generic.",
   icon:
     "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/43/0d/a1/430da101-c393-3e50-1e85-9c6d6fdea328/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg",
   heroPhone: "/felt/felt-image.webp",
