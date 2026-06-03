@@ -11,9 +11,16 @@ Form submissions call Resend from `app/actions/forms.ts`. A **403** almost alway
 
 So the **`from`** address must use **`@contact.turbofasttools.com`**, not `info@turbofasttools.com`.
 
-**Auto-correction:** `lib/resend-config.ts` now forces the `from` onto the verified domain. If `RESEND_FROM` is set to a non-verified domain (e.g. `info@turbofasttools.com`), the code keeps the local part and rewrites it to `info@contact.turbofasttools.com` so it can't 403. If `RESEND_FROM` is unset, it defaults to `TRBO Website <notifications@contact.turbofasttools.com>`. Setting `RESEND_FROM` correctly is still recommended so the address is exactly what you want.
+| Field | Example | Rule |
+|-------|---------|------|
+| **`from` (sender)** | `notifications@contact.turbofasttools.com` | Must be on your **verified** subdomain. No mailbox required. |
+| **`to` (recipient)** | `info@turbofasttools.com` | Any inbox (your Google **group** is fine). Stays on the root domain. |
 
-**Recipient (`to`)** can be any inbox, e.g. `info@turbofasttools.com` or `mostafaa@turbofasttools.com`. Recipients do **not** need to be on the verified domain.
+**Production behavior:** On Vercel production, the app **always** sends `from: TRBO Website <notifications@contact.turbofasttools.com>` and ignores a broken `RESEND_FROM`. You do **not** put `info@` in `from`.
+
+**Recipient (`to`)** is set with `SUBMISSIONS_EMAIL_TO=info@turbofasttools.com` — that is correct and is **not** the same as the verified sending domain.
+
+**Broken env (causes 403 or `info@` only):** If Vercel values contain a **line break** after `@` or a typo like `iinfo@`, Resend sees garbage. Paste each variable on **one line**, no quotes, no trailing spaces.
 
 ## Vercel env (copy exactly, one line each)
 

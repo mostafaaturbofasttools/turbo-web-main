@@ -38,6 +38,7 @@ async function sendEmail(subject: string, body: string): Promise<boolean> {
     return false;
   }
 
+  console.info("[email] sent", { from: config.from, to: config.to, subject });
   return true;
 }
 
