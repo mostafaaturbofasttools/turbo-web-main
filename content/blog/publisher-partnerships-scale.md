@@ -1,6 +1,6 @@
 ---
 title: "How We Decide: Self-Publish vs Supercent, Voodoo, or Homa"
-description: Not every title should launch the same way. Here is how TRBO chooses self-publishing versus co-dev with Supercent, Voodoo, or Homa.
+description: Not every title should launch the same way. Here is how TRBO chooses self-publishing versus working with Supercent, Voodoo, or Homa to publish.
 date: 2026-02-18
 cover: /blog/covers/publisher-partnerships-scale.webp
 tags: [publishing, games, partners]
@@ -12,7 +12,7 @@ Not every game needs the same launch plan. Some titles are ready for TRBO to pub
 
 You have proven retention, a clear ASO story, and a team that can ship updates weekly. TRBO provides UA capital, creatives, and our internal platform to amplify what is already working.
 
-## When co-publishing wins
+## When partner publishing fits
 
 Certain genres benefit from an established partner brand on the store page. We have shipped titles with **Supercent** (simulation and strategy), **Voodoo** (hyper and hybrid casual), and **Homa** (arcade and puzzle) when the fit is right.
 
@@ -22,7 +22,7 @@ Transparent metrics sharing after initial review. Shared creative testing. Fast 
 
 ## Start the conversation
 
-[Submit your app](/publish) with stage, links, and a short note on your genre. We will tell you honestly whether TRBO direct, co-publish, or pass is the best path.
+[Submit your app](/publish) with stage, links, and a short note on your genre. We will tell you honestly whether TRBO direct publish, partner publish, or pass is the best path.
 
 ## References
 

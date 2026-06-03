@@ -94,7 +94,7 @@ AI-native publishing & growth — 2M+ downloads · 16+ apps · $1M+ revenue
 ```
 TRBO FAST TOOLS INC is an AI-native app publishing and growth agency in Vancouver, Canada. We run an in-house platform that blends AI with human-in-the-loop workflows.
 
-We help consumer apps and games reach the market and scale. We self-publish, co-publish with partners like Supercent, Voodoo, and Homa, and run hybrid paid and organic growth for titles we take on.
+We help consumer apps and games reach the market and scale. We self-publish and work with partners like Supercent, Voodoo, and Homa to publish and grow titles when the fit is right. We run hybrid paid and organic growth on every path we take.
 
 The TRBO Growth Engine is our in-house platform. AI and human-in-the-loop teams work together on market insight, creatives, UA experiments, ASO, retention signals, and product analysis.
 
@@ -196,7 +196,7 @@ We’ve refreshed how we show up: TRBO is the AI-native app publishing & growth 
 
 We Build. Publish. Scale.
 
-2M+ downloads. 16+ apps. $1M+ revenue generated. From Felt – AI Journal Buddy to games with partners like Supercent, Voodoo, and Homa.
+2M+ downloads. 16+ apps. $1M+ revenue generated. From Felt – AI Journal Buddy to games published with partners like Supercent, Voodoo, and Homa.
 
 Developers → turbofasttools.com/publish
 Partners → turbofasttools.com/contact
@@ -225,7 +225,7 @@ Use the same language on LinkedIn posts as on the site:
 | Case studies | `/#case-studies` | My Beach Resort, Beach Hotel Simulator 3D, City Connect, Felt (no confidential CPI/retention metrics in public posts) |
 | TRBO Labs | `/#labs` | Production tools we also sell (ConvertRoute) |
 | Submit | `/publish` | Publisher test → publishing agreement for qualified apps |
-| Partner | `/contact` | Co-publishing and strategic partnerships |
+| Partner | `/contact` | Publishing partnerships with global publishers |
 
 ---
 

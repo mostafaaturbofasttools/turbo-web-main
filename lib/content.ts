@@ -3,7 +3,7 @@ export const services = [
     number: "01",
     title: "Publishing & Distribution",
     description:
-      "We publish your app, either on our own or with partners like Voodoo and Homa, and handle distribution across paid and organic channels.",
+      "We publish your app on our own or work with partners like Supercent, Voodoo, and Homa to publish and distribute, across paid and organic channels.",
   },
   {
     number: "02",
@@ -87,7 +87,7 @@ export const whyTrbo = [
   "Our Growth Engine blends AI with human-in-the-loop expertise at every stage",
   "Scale your product beyond typical publishing reach with tooling built in-house",
   "We invest our own capital in user acquisition",
-  "Flexible publishing: self-published or with Supercent, Voodoo, and Homa",
+  "Flexible publishing: self-published or published with Supercent, Voodoo, and Homa",
   "In-house and co-development. A cleaner model than typical agencies",
 ];
 
@@ -100,7 +100,7 @@ export const audiencePaths = [
   },
   {
     title: "For publishers & partners",
-    description: "Explore our portfolio, case studies, and reach out about strategic partnerships or co-publishing.",
+    description: "Explore our portfolio, case studies, and reach out about strategic publishing partnerships.",
     cta: "Partner with TRBO",
     href: "/contact",
   },
@@ -261,9 +261,9 @@ export const faqs = [
       "No. We publish and grow consumer apps and games. Felt is our AI journal app, and our portfolio includes simulation and strategy titles with partners such as Supercent, Voodoo, and Homa.",
   },
   {
-    question: "Do you co-develop or publish with partners?",
+    question: "Do you work with publishing partners?",
     answer:
-      "Yes. We develop and publish our own titles and work with leading mobile publishers through collaborations that fit the app, including experience with Supercent, Voodoo, and Homa.",
+      "Yes. We develop and publish our own titles, and we work with leading mobile publishers like Supercent, Voodoo, and Homa when the app and genre fit. TRBO builds and publishes, partners help push distribution at scale.",
   },
   {
     question: "How long does review take?",

@@ -14,7 +14,7 @@ Strong apps show healthy retention curves. During review we look at **D1, D7, an
 
 ## Self-publish vs partner publishing
 
-Some apps launch under TRBO directly. Others reach scale faster through co-development with partners like Supercent, Voodoo, or Homa. The right path depends on your metrics, genre, and growth goals.
+Some apps launch under TRBO directly. Others reach scale faster when we work with partners like Supercent, Voodoo, or Homa to publish and distribute. The right path depends on your metrics, genre, and growth goals.
 
 ## Hybrid growth wins
 
