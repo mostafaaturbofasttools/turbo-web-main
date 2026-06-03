@@ -125,6 +125,44 @@ export const marketingTools = [
 
 export const caseStudies = [
   {
+    slug: "my-beach-resort",
+    name: "My Beach Resort",
+    partner: "Supercent",
+    headline: "500K+ installs with Supercent",
+    problem:
+      "A relaxing beach resort idle sim needed partner publishing and hybrid growth to scale beyond early traction.",
+    trboRole: [
+      "Developed by TRBO and published with Supercent",
+      "Ran creative testing and UA support alongside partner distribution",
+      "Optimized store assets and genre positioning for idle management audiences",
+      "Scaled installs while maintaining a 4.9 App Store rating",
+    ],
+    result: "500K+ installs",
+    rating: "4.9 App Store rating",
+    icon: "/games/my-beach-resort-play.jpg",
+    appStore: "https://apps.apple.com/us/app/my-beach-resort/id6636534055",
+    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.beachresort",
+  },
+  {
+    slug: "beach-hotel-simulator",
+    name: "Beach Hotel Simulator 3D",
+    partner: "Supercent",
+    headline: "500K+ installs with Supercent",
+    problem:
+      "A beach hotel simulation title needed partner publishing muscle and store optimization to reach mass-market scale.",
+    trboRole: [
+      "Developed by TRBO and published with Supercent",
+      "Ran creative testing and UA alongside Supercent distribution",
+      "Tuned store listing and screenshots for simulation players",
+      "Grew installs while holding a 4.7 App Store rating",
+    ],
+    result: "500K+ installs",
+    rating: "4.7 App Store rating",
+    icon: "/games/beach-hotel-simulator.jpg",
+    appStore: "https://apps.apple.com/us/app/beach-hotel-simulator-3d/id6746117443",
+    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.hotelsimulator",
+  },
+  {
     slug: "city-connect",
     name: "City Connect",
     partner: "TRBO (self-published)",
@@ -145,37 +183,17 @@ export const caseStudies = [
       "https://play.google.com/store/apps/details?id=com.aredstudio.cityconnect.relax.story.connect.idle.simulation.management.country.state",
   },
   {
-    slug: "beach-resort-supercent",
-    name: "My Beach Resort & Beach Hotel Simulator 3D",
-    partner: "Supercent",
-    headline: "500K+ installs across two Supercent collaborations",
-    problem:
-      "Two beach-themed simulation titles needed partner publishing muscle and hybrid growth to scale beyond initial traction.",
-    trboRole: [
-      "Co-developed and published with Supercent",
-      "Ran creative testing and UA support alongside partner distribution",
-      "Optimized store assets and genre positioning for idle/sim audiences",
-      "Scaled installs while maintaining strong App Store ratings",
-    ],
-    result: "500K+ installs and 4.7 to 4.9 App Store ratings",
-    rating: "Supercent collaboration",
-    icon: "/games/my-beach-resort-play.jpg",
-    icons: ["/games/my-beach-resort-play.jpg", "/games/beach-hotel-simulator.jpg"],
-    appStore: "https://apps.apple.com/us/app/my-beach-resort/id6636534055",
-    playStore: "https://play.google.com/store/apps/details?id=com.aredstudio.beachresort",
-  },
-  {
     slug: "felt",
     name: "Felt: AI Journal Buddy",
     partner: "Owned Product Lab",
-    headline: "TRBO's AI-native consumer app in production",
+    headline: "AI journal buddy that learns you over time",
     problem:
-      "TRBO needed a live product to test AI personalization, retention loops, and companion-style UX in a real consumer app.",
+      "Many journal apps feel generic. Users wanted a buddy that remembers their story and helps them understand patterns in mood and habits.",
     trboRole: [
-      "Built and shipped Felt as an owned TRBO product",
-      "Tested AI journaling, mood tracking, and Mentora personalization",
-      "Validated retention and engagement patterns for future TRBO apps",
-      "Proved AI plus product judgment in a non-gaming consumer category",
+      "Built and shipped Felt as a TRBO-owned consumer app",
+      "Shipped Mentora, an AI companion that learns from journal entries",
+      "Voice and text journaling, mood tracking, and daily affirmations",
+      "Privacy-first design with guidance that feels personal",
     ],
     result: "Live on the App Store with growing ratings",
     rating: "Owned Product Lab",
@@ -190,7 +208,7 @@ export const founderSection = {
   label: "Leadership",
   title: "Built by operators, not consultants",
   description:
-    "TRBO is led by people who build, ship, and scale consumer apps every day, not slide decks about them. Follow founder Mostafa on LinkedIn or X (@mostafawmg).",
+    "TRBO is led by people who build, ship, and scale consumer apps every day. Follow founder Mostafa on LinkedIn or X (@mostafawmg).",
   bullets: [
     "AI Engineer at Microsoft focused on distributed systems, AI infrastructure, and agents",
     "Mobile apps and games portfolio with 2M+ downloads across 16+ apps",

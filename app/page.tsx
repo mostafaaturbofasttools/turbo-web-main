@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button-link";
+import { HorizontalScrollItem, HorizontalScrollRow } from "@/components/ui/horizontal-scroll";
 import { FaqSectionLoader } from "@/components/lazy/faq-section-loader";
 import { PublishFormSectionLoader } from "@/components/lazy/publish-form-section-loader";
 import { GameCard, GameShowcaseRow, SectionHeading } from "@/components/game-card";
@@ -143,15 +144,17 @@ export default function HomePage() {
             title="Publisher-first, growth-driven"
             description="From market insight to hybrid distribution, our Growth Engine and team help apps reach users and scale beyond typical publishing limits."
           />
-          <div className="mt-12 grid grid-balance-sm2-lg3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <HorizontalScrollRow className="mt-12">
             {services.map((s) => (
-              <article key={s.number} className="rounded-2xl border border-border bg-card/60 p-6">
-                <p className="text-xs font-bold text-accent">{s.number}</p>
-                <h3 className="mt-2 text-lg font-bold">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{s.description}</p>
-              </article>
+              <HorizontalScrollItem key={s.number}>
+                <article className="h-full rounded-2xl border border-border bg-card/60 p-6">
+                  <p className="text-xs font-bold text-accent">{s.number}</p>
+                  <h3 className="mt-2 text-lg font-bold">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{s.description}</p>
+                </article>
+              </HorizontalScrollItem>
             ))}
-          </div>
+          </HorizontalScrollRow>
         </div>
       </section>
 
@@ -162,14 +165,16 @@ export default function HomePage() {
             title="How we operate at scale"
             description="Internal modules we use every day to analyze, test, and grow consumer apps. This is how TRBO runs publishing."
           />
-          <div className="mt-12 grid grid-balance-sm2-lg3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <HorizontalScrollRow className="mt-12">
             {growthEngineModules.map((mod) => (
-              <article key={mod.name} className="rounded-2xl border border-border bg-card/60 p-6">
-                <h3 className="text-lg font-bold">{mod.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{mod.description}</p>
-              </article>
+              <HorizontalScrollItem key={mod.name}>
+                <article className="h-full rounded-2xl border border-border bg-card/60 p-6">
+                  <h3 className="text-lg font-bold">{mod.name}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{mod.description}</p>
+                </article>
+              </HorizontalScrollItem>
             ))}
-          </div>
+          </HorizontalScrollRow>
         </div>
       </section>
 
@@ -180,9 +185,10 @@ export default function HomePage() {
             title="Proven results"
             description="Real apps, real distribution, and what TRBO did to move the needle."
           />
-          <div className="mt-12 grid grid-balance-lg3 gap-6 lg:grid-cols-3">
+          <HorizontalScrollRow className="mt-12">
             {caseStudies.map((cs) => (
-              <article key={cs.slug} className="flex flex-col rounded-2xl border border-border bg-card/70 p-6">
+              <HorizontalScrollItem key={cs.slug} width="wide">
+              <article className="flex h-full min-h-[28rem] flex-col rounded-2xl border border-border bg-card/70 p-6">
                 <div className="flex items-start gap-4">
                   {"icons" in cs && cs.icons ? (
                     <div className="flex shrink-0 items-center">
@@ -257,8 +263,9 @@ export default function HomePage() {
                   ) : null}
                 </div>
               </article>
+              </HorizontalScrollItem>
             ))}
-          </div>
+          </HorizontalScrollRow>
         </div>
       </section>
 
@@ -292,27 +299,25 @@ export default function HomePage() {
       <section className="border-t border-border bg-surface/20 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionHeading label="All apps" title="More apps by TRBO" />
-          <div className="mt-12 grid grid-balance-sm2-lg3 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <HorizontalScrollRow className="mt-12">
             {moreAppsGames.map((game) => (
-              <GameCard key={game.slug} game={game} />
+              <HorizontalScrollItem key={game.slug} width="narrow">
+                <GameCard game={game} />
+              </HorizontalScrollItem>
             ))}
-          </div>
+          </HorizontalScrollRow>
         </div>
       </section>
 
       <section className="border-y border-border bg-gradient-to-br from-card via-background to-[#12102a] px-4 py-20 sm:px-6">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
           <div>
-            <p className="text-xs font-bold uppercase tracking-wider text-accent-2">Owned Product Lab</p>
+            <p className="text-xs font-bold uppercase tracking-wider text-accent-2">Our app</p>
             <h2 className="mt-2 text-3xl font-bold sm:text-4xl">{felt.name}</h2>
             <p className="mt-2 text-sm text-accent">
               ★ {felt.rating} · {felt.ratingsCount} ratings · {felt.category}
             </p>
-            <p className="mt-4 text-muted">
-              Felt is TRBO&apos;s live consumer app lab. We use it to test AI personalization, memory, and
-              retention loops in production, not just in pitch decks. It proves we can ship and grow AI-native
-              products outside gaming.
-            </p>
+            <p className="mt-4 text-muted">{felt.homepageIntro}</p>
             <p className="mt-2 text-sm text-muted">{felt.heroSubtitle}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {felt.features.map((f) => (
@@ -402,15 +407,17 @@ export default function HomePage() {
       <section className="px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionHeading label="Process" title="How it works" />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <HorizontalScrollRow className="mt-12">
             {processSteps.map((step) => (
-              <div key={step.step} className="rounded-2xl border border-border bg-card/50 p-5">
-                <p className="text-sm font-bold text-accent">{step.step}</p>
-                <h3 className="mt-2 font-bold">{step.title}</h3>
-                <p className="mt-2 text-sm text-muted">{step.description}</p>
-              </div>
+              <HorizontalScrollItem key={step.step} width="narrow">
+                <div className="h-full rounded-2xl border border-border bg-card/50 p-5">
+                  <p className="text-sm font-bold text-accent">{step.step}</p>
+                  <h3 className="mt-2 font-bold">{step.title}</h3>
+                  <p className="mt-2 text-sm text-muted">{step.description}</p>
+                </div>
+              </HorizontalScrollItem>
             ))}
-          </div>
+          </HorizontalScrollRow>
         </div>
       </section>
 
@@ -504,16 +511,18 @@ export default function HomePage() {
       <section className="border-y border-border bg-surface/20 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <SectionHeading label="Reviews" title="What users say about Felt" />
-          <div className="mt-12 grid grid-balance-2 gap-5 sm:grid-cols-2">
+          <HorizontalScrollRow className="mt-12">
             {feltReviews.map((r) => (
-              <blockquote key={r.author} className="rounded-2xl border border-border bg-card/60 p-6">
-                <p className="text-sm text-accent">{"★".repeat(r.rating)}</p>
-                <p className="mt-2 font-semibold">{r.title}</p>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{r.body}</p>
-                <footer className="mt-4 text-xs text-muted">{r.author}</footer>
-              </blockquote>
+              <HorizontalScrollItem key={r.author}>
+                <blockquote className="h-full rounded-2xl border border-border bg-card/60 p-6">
+                  <p className="text-sm text-accent">{"★".repeat(r.rating)}</p>
+                  <p className="mt-2 font-semibold">{r.title}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{r.body}</p>
+                  <footer className="mt-4 text-xs text-muted">{r.author}</footer>
+                </blockquote>
+              </HorizontalScrollItem>
             ))}
-          </div>
+          </HorizontalScrollRow>
         </div>
       </section>
 
