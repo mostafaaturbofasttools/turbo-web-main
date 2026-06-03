@@ -9,29 +9,31 @@ import {
   type FormFieldErrors,
   type PublishFormActionResult,
 } from "@/lib/schemas";
+import { formatResendError, getResendConfig } from "@/lib/resend-config";
 import { checkRateLimit } from "@/lib/submissions/rate-limit";
 import { saveSubmission } from "@/lib/submissions";
 
 async function sendEmail(subject: string, body: string): Promise<boolean> {
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.SUBMISSIONS_EMAIL_TO ?? "info@turbofasttools.com";
-  const from = process.env.RESEND_FROM ?? "TRBO Website <onboarding@resend.dev>";
-
-  if (!apiKey) {
-    console.warn("[email] RESEND_API_KEY not set — no email sent for:", subject);
+  const config = getResendConfig();
+  if (!config.ok) {
+    console.warn("[email]", config.reason, "— no email sent for:", subject);
     return false;
   }
 
-  const resend = new Resend(apiKey);
+  const resend = new Resend(config.apiKey);
   const { error } = await resend.emails.send({
-    from,
-    to,
+    from: config.from,
+    to: config.to,
     subject,
     text: body,
   });
 
   if (error) {
-    console.error("[email] Resend delivery failed:", error);
+    console.error("[email] Resend delivery failed:", formatResendError(error), {
+      from: config.from,
+      to: config.to,
+      subject,
+    });
     return false;
   }
 
@@ -112,8 +114,8 @@ export async function submitPublishForm(formData: FormData): Promise<PublishForm
   };
 
   const body = Object.entries(parsed.data)
-    .map(([k, v]) => `${k}: ${v}`)
-    .join("\n");
+    .map(([k, v]) => `${k}: ${Array.isArray(v) ? v.join(", ") : v}`)
+    .join("\n\n");
 
   const [saved, emailed] = await Promise.all([
     persistSubmission(payload),

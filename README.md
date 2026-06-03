@@ -68,6 +68,8 @@ In **production**, if **both** fail, the user sees an error instead of a fake su
 
 `onboarding@resend.dev` is for testing only — it cannot reliably deliver to your real inbox in production.
 
+**403 from Resend?** See [docs/resend-email-setup.md](docs/resend-email-setup.md) (verify domain, fix `RESEND_FROM` / `SUBMISSIONS_EMAIL_TO` on one line in Vercel).
+
 **Local dev without env vars:** forms show success but only log to the terminal. That is expected.
 
 ## Deploy to Vercel
