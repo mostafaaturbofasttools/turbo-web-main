@@ -59,12 +59,12 @@ On each submit the site:
 
 In **production**, if **both** fail, the user sees an error instead of a fake success.
 
-**Resend checklist for `info@turbofasttools.com`:**
+**Resend checklist (verified domain: `contact.turbofasttools.com`):**
 
-1. Add and verify domain `turbofasttools.com` in Resend
-2. Set `RESEND_FROM=TRBO Website <info@turbofasttools.com>` (or `noreply@turbofasttools.com`)
+1. Verify **`contact.turbofasttools.com`** in [Resend Domains](https://resend.com/domains) (not the root domain unless you verify that too)
+2. Set `RESEND_FROM=TRBO Website <notifications@contact.turbofasttools.com>`
 3. Set `RESEND_API_KEY` from the Resend dashboard
-4. Set `SUBMISSIONS_EMAIL_TO=info@turbofasttools.com`
+4. Set `SUBMISSIONS_EMAIL_TO=info@turbofasttools.com` (recipient can be any inbox)
 
 `onboarding@resend.dev` is for testing only — it cannot reliably deliver to your real inbox in production.
 

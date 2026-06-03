@@ -1,12 +1,17 @@
+/** Resend-verified sending domain (subdomain). */
+export const RESEND_SEND_DOMAIN = "contact.turbofasttools.com";
+
 const DEFAULT_TO = "info@turbofasttools.com";
 const DEFAULT_FROM = "TRBO Website <onboarding@resend.dev>";
+const PRODUCTION_FROM = `TRBO Website <notifications@${RESEND_SEND_DOMAIN}>`;
 
 export type ResendConfig =
   | { ok: true; apiKey: string; from: string; to: string }
   | { ok: false; reason: string };
 
+/** Collapse accidental line breaks in Vercel env values (fixes truncated `info@` addresses). */
 function trimEnv(value: string | undefined): string {
-  return (value ?? "").trim().replace(/\r\n/g, "\n").split("\n")[0]?.trim() ?? "";
+  return (value ?? "").replace(/[\r\n]+/g, "").trim();
 }
 
 /** Pull bare address from `Name <email@domain.com>` or plain email. */
@@ -34,7 +39,7 @@ export function getResendConfig(): ResendConfig {
   if (!isValidEmail(fromEmail)) {
     return {
       ok: false,
-      reason: `RESEND_FROM is invalid (got "${from.slice(0, 80)}"). Use: TRBO Website <info@turbofasttools.com>`,
+      reason: `RESEND_FROM is invalid (got "${from.slice(0, 80)}"). Use: ${PRODUCTION_FROM}`,
     };
   }
 
@@ -43,6 +48,14 @@ export function getResendConfig(): ResendConfig {
       ok: false,
       reason: `SUBMISSIONS_EMAIL_TO is invalid (got "${to.slice(0, 80)}"). Use: info@turbofasttools.com`,
     };
+  }
+
+  const fromDomain = fromEmail.split("@")[1]?.toLowerCase();
+  if (fromDomain === "turbofasttools.com") {
+    console.warn(
+      `[email] RESEND_FROM uses @turbofasttools.com but Resend verified domain is ${RESEND_SEND_DOMAIN}. ` +
+        `Set RESEND_FROM=${PRODUCTION_FROM}`,
+    );
   }
 
   return { ok: true, apiKey, from, to };
