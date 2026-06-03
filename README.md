@@ -46,7 +46,7 @@ npm run env:vercel -- all       # production + preview + development
 
 The script reads only keys from `.env.example`, never prints secret values, and uses `vercel env add --force`.
 
-Then redeploy: `vercel --prod`
+Then redeploy: `vercel --prod` (any push to `main` also triggers a Vercel deploy if the repo is connected).
 
 ## Will form submissions send email?
 
