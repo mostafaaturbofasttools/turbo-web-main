@@ -13,7 +13,7 @@ const geistSans = Geist({
   display: "swap",
   adjustFontFallback: true,
   preload: true,
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {

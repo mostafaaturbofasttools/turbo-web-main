@@ -1,12 +1,21 @@
 import type { Game } from "@/lib/games";
 import Image from "next/image";
 
-function StoreBadge({ href, label }: { href: string; label: string }) {
+function StoreBadge({
+  href,
+  label,
+  gameName,
+}: {
+  href: string;
+  label: string;
+  gameName: string;
+}) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`Get ${gameName} on ${label}`}
       className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
     >
       {label}
@@ -44,8 +53,12 @@ export function GameCard({ game }: { game: Game }) {
       </div>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{game.blurb}</p>
       <div className="mt-4 flex flex-wrap gap-2">
-        {game.appStore ? <StoreBadge href={game.appStore} label="App Store" /> : null}
-        {game.playStore ? <StoreBadge href={game.playStore} label="Google Play" /> : null}
+        {game.appStore ? (
+          <StoreBadge href={game.appStore} label="App Store" gameName={game.name} />
+        ) : null}
+        {game.playStore ? (
+          <StoreBadge href={game.playStore} label="Google Play" gameName={game.name} />
+        ) : null}
       </div>
     </article>
   );
@@ -71,8 +84,12 @@ export function GameShowcaseRow({ game }: { game: Game }) {
         {game.stats ? <p className="mt-2 text-sm font-medium text-accent">{game.stats}</p> : null}
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted">{game.blurb}</p>
         <div className="mt-5 flex flex-wrap gap-3">
-          {game.appStore ? <StoreBadge href={game.appStore} label="App Store" /> : null}
-          {game.playStore ? <StoreBadge href={game.playStore} label="Google Play" /> : null}
+          {game.appStore ? (
+            <StoreBadge href={game.appStore} label="App Store" gameName={game.name} />
+          ) : null}
+          {game.playStore ? (
+            <StoreBadge href={game.playStore} label="Google Play" gameName={game.name} />
+          ) : null}
         </div>
       </div>
     </article>

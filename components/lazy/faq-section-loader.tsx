@@ -6,6 +6,6 @@ export const FaqSectionLoader = dynamic(
   () => import("@/components/faq-section").then((m) => ({ default: m.FaqSection })),
   {
     ssr: false,
-    loading: () => <div className="mt-10 min-h-64 animate-pulse rounded-xl bg-surface/40" aria-hidden />,
+    loading: () => <div className="mt-10 min-h-48 animate-pulse rounded-xl bg-surface/40" aria-hidden />,
   },
 );

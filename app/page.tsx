@@ -6,7 +6,7 @@ import {
   HorizontalScrollItem,
   HorizontalScrollRow,
 } from "@/components/ui/horizontal-scroll";
-import { FaqSection } from "@/components/faq-section";
+import { FaqSectionLoader } from "@/components/lazy/faq-section-loader";
 import { PublishFormSectionLoader } from "@/components/lazy/publish-form-section-loader";
 import {
   GameCard,
@@ -37,6 +37,7 @@ import { getBlogPosts } from "@/lib/content-loader";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
+  description: siteConfig.heroSubline,
   alternates: { canonical: "/" },
 };
 
@@ -120,7 +121,7 @@ export default function HomePage() {
           <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
             {heroStats.map((stat) => (
               <div key={stat.label} className="bg-card px-4 py-6">
-                <div className="text-2xl font-black sm:text-3xl">
+                <div className="text-2xl font-bold sm:text-3xl">
                   {stat.value}
                 </div>
                 <div className="mt-1 text-xs text-muted sm:text-sm">
@@ -262,7 +263,7 @@ export default function HomePage() {
                         variant="outline"
                         size="sm"
                       >
-                        Learn more
+                        Learn more about {cs.name}
                       </ButtonLink>
                     ) : null}
                     {cs.appStore ? (
@@ -270,6 +271,7 @@ export default function HomePage() {
                         href={cs.appStore}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Get ${cs.name} on the App Store`}
                         className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
                       >
                         App Store
@@ -280,6 +282,7 @@ export default function HomePage() {
                         href={cs.playStore}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`Get ${cs.name} on Google Play`}
                         className="inline-flex items-center rounded-lg border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold text-foreground transition hover:border-accent/40"
                       >
                         Google Play
@@ -594,6 +597,7 @@ export default function HomePage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
+                aria-label={`Read blog post: ${post.title}`}
                 className="group overflow-hidden rounded-2xl border border-border bg-card/60 transition hover:border-accent/30"
               >
                 <div className="relative aspect-[2/1] overflow-hidden bg-surface">
@@ -647,7 +651,7 @@ export default function HomePage() {
       <section className="border-t border-border bg-surface/20 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <SectionHeading label="FAQ" title="Common questions" />
-          <FaqSection />
+          <FaqSectionLoader />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
