@@ -1,11 +1,9 @@
 ---
 title: Games Terms & Conditions
-updated: 2024-08-19
+updated: 2026-06-02
 ---
 
 # Games Terms & Conditions
-
-## Last updated August 19, 2024
 
 These Terms and Conditions regulate the download, access and use of the different mobile applications (hereinafter, the "APPS"), which TRBO FAST TOOLS INC owns and which are available to users free of charge on Apple Store (IOS) or Google play store (Android) or Websites.
 
@@ -14,7 +12,7 @@ The user acquires this condition by downloading and using the application of his
 1. APPS Oversight and Ownership  
 TRBO FAST TOOLS INC, (hereinafter TRBO FAST TOOLS) with registered office at 833 Homer St V6B 0H4 - Vancouver - BC - Canada and email: info@trbofasttools.com is the owner and responsible for the APPS.
 2. Purpose  
-The primary purpose behind the development of these APPS is to offer users quick and customizable access to a variety of content, including motivational phrases, daily affirmations, jokes, vocabulary, curiosities, and other general interest information, all accessible through their mobile devices (hereinafter referred to as the "content")
+The primary purpose of TRBO mobile games and apps is to provide playable consumer experiences, including simulation, strategy, puzzle, and related titles distributed through app stores (hereinafter referred to as the "content" or "Services")
 3. ​Definitions  
 These Terms and Conditions of Use assign specific definitions to capitalized terms, unless the context suggests otherwise.  
    1. ​Merchant - pertains to any organization or individual whose products can be bought through the Mobile Application.  
@@ -110,7 +108,7 @@ downloading, and updating the APPS.
 24. Applicable law and jurisdiction  
    1. ​The Mobile Application can be accessed from all countries where local technology allows. Because different places have different laws, by accessing the Mobile Application, you and we agree that the laws of the Canada will apply to all matters related to its use, without regard to the conflicts of laws principles.  
    2. You may not access or use the App for any purpose other than that for which we make the App available. You agree that your failure to adhere to any of these conditions shall constitute a breach of this Agreement on your part
-25. You maintain all of your rights in any user-generated content you submit, post, or display on or through our APPS, and it is your responsibility to safeguard these rights. We assume no responsibility or liability for any user-generated content that you or any third party posts on or through the APPS. However, by posting user-generated content through the APPS, users grant Monkey Taps the right and license to use, modify, publicly perform, publicly display, reproduce, and distribute such user-generated content on and through the APPS. Furthermore, you agree that this license encompasses the right for us to make your user-generated content accessible to other APPS users, who may also use your user-generated content subject to these Terms.  
+25. You maintain all of your rights in any user-generated content you submit, post, or display on or through our APPS, and it is your responsibility to safeguard these rights. We assume no responsibility or liability for any user-generated content that you or any third party posts on or through the APPS. However, by posting user-generated content through the APPS, users grant TRBO FAST TOOLS INC the right and license to use, modify, publicly perform, publicly display, reproduce, and distribute such user-generated content on and through the APPS. Furthermore, you agree that this license encompasses the right for us to make your user-generated content accessible to other APPS users, who may also use your user-generated content subject to these Terms.  
     
 ​Copyright © TRBO FAST TOOLS INC.
 

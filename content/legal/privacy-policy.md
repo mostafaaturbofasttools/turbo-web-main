@@ -5,8 +5,6 @@ updated: 2026-06-02
 
 # Privacy Policy
 
-## Last updated June 2, 2026
-
 Thank you for choosing to be part of our community at TRBO FAST TOOLS INC. (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regards to your personal information, please contact us at info@turbofasttools.com
 
 When you use our mobile application, as the case may be (the &quot;APPS&quot;) and more generally, use any of our services (the &quot;Services&quot;, which include the App), we take your privacy very seriously. We hope you take some time to read through it carefully, as it is important. If there are any terms in this privacy notice that you do not agree with, please discontinue use of our Services immediately.

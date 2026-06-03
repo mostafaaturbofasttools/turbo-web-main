@@ -1,11 +1,9 @@
 ---
 title: Terms & Conditions
-updated: 2025-12-19
+updated: 2026-06-02
 ---
 
 # Terms & Conditions
-
-# Last updated December 19, 2025
 
 # These Terms and Conditions regulate the download, access and use of the different mobile applications (hereinafter, the &quot;APPS&quot;), which TRBO FAST TOOLS INC owns and which are available to users free of charge on Apple Store (IOS). 
 The user acquires this condition by downloading and using the application of his/her choice. By accessing the application(s), the user acknowledges having accepted and consented unreservedly to these terms of use and privacy policy. We may change these terms and conditions at any time, and it is your responsibility to stay updated with any changes made. If you do not agree to any part of these terms and conditions, you must stop using the Mobile Application and its services immediately. By continuing to use the Mobile Application, you are indicating your acceptance of these Terms and Conditions of Use, including any modifications that may be made in the future.
@@ -15,7 +13,7 @@ The user acquires this condition by downloading and using the application of his
 TRBO FAST TOOLS INC, (hereinafter TRBO FAST TOOLS) with registered office at 833 Homer St V6B 0H4 - Vancouver - BC - Canada and email: info@trbofasttools.com is the owner and responsible for the APPS. 
 
 #  Purpose 
-The primary purpose behind the development of these APPS is to offer users quick and customizable access to a variety of content, including motivational phrases, daily affirmations, jokes, vocabulary, curiosities, and other general interest information, all accessible through their mobile devices (hereinafter referred to as the &quot;content&quot;)
+The primary purpose of TRBO mobile applications is to provide consumer apps and games, including AI-powered tools, simulation titles, journaling products such as Felt, and related digital services made available through app stores (hereinafter referred to as the &quot;content&quot; or &quot;Services&quot;)
 
 # ​Definitions 
 These Terms and Conditions of Use assign specific definitions to capitalized terms, unless the context suggests otherwise.
@@ -146,7 +144,7 @@ Within the main screen, an icon located at the bottom right corner provides acce
 
 # The act of posting user-generated content on or through the APPS does not infringe upon the privacy rights, publicity rights, copyrights, contract rights, or any other rights of any individual or entity. We maintain the right to terminate the account of any person found to be infringing on copyright.
 
-# You maintain all of your rights in any user-generated content you submit, post, or display on or through our APPS, and it is your responsibility to safeguard these rights. We assume no responsibility or liability for any user-generated content that you or any third party posts on or through the APPS. However, by posting user-generated content through the APPS, users grant Monkey Taps the right and license to use, modify, publicly perform, publicly display, reproduce, and distribute such user-generated content on and through the APPS. Furthermore, you agree that this license encompasses the right for us to make your user-generated content accessible to other APPS users, who may also use your user-generated content subject to these Terms.
+# You maintain all of your rights in any user-generated content you submit, post, or display on or through our APPS, and it is your responsibility to safeguard these rights. We assume no responsibility or liability for any user-generated content that you or any third party posts on or through the APPS. However, by posting user-generated content through the APPS, users grant TRBO FAST TOOLS INC the right and license to use, modify, publicly perform, publicly display, reproduce, and distribute such user-generated content on and through the APPS. Furthermore, you agree that this license encompasses the right for us to make your user-generated content accessible to other APPS users, who may also use your user-generated content subject to these Terms.
  
 
 Lifetime Purchase (One-Time Payment)

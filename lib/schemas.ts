@@ -20,8 +20,10 @@ export const publishHelpOptions = [
 ] as const;
 
 export const publishTeamSizes = [
-  { value: "1", label: "1 (solo)" },
-  { value: "2-10", label: "2-10" },
+  { value: "solo", label: "Solo" },
+  { value: "2-5", label: "2–5" },
+  { value: "6-10", label: "6–10" },
+  { value: "11-50", label: "11–50" },
   { value: "50+", label: "50+" },
 ] as const;
 

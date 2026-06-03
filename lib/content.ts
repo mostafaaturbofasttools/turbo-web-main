@@ -166,16 +166,16 @@ export const caseStudies = [
     slug: "city-connect",
     name: "City Connect",
     partner: "TRBO (self-published)",
-    headline: "First 100K downloads driven by TRBO",
+    headline: "From launch to first 100K users",
     problem:
       "A relaxing idle transport sim needed distribution and store positioning to reach its first meaningful user base.",
     trboRole: [
       "Self-published and ran initial UA experiments",
       "Optimized store listing and ASO assets",
       "Tested paid and organic channels to find early traction",
-      "Iterated on onboarding based on retention signals",
+      "Iterated onboarding and first-session flow from early player feedback",
     ],
-    result: "100K+ downloads",
+    result: "100K+ downloads on TRBO-led distribution",
     rating: "First 100K driven by us",
     icon: "/games/city-connect-play.jpg",
     appStore: "https://apps.apple.com/us/app/city-connect-idle-simulation/id6759379721",
@@ -185,7 +185,7 @@ export const caseStudies = [
   {
     slug: "felt",
     name: "Felt: AI Journal Buddy",
-    partner: "Owned Product Lab",
+    partner: "TRBO",
     headline: "AI journal buddy that learns you over time",
     problem:
       "Many journal apps feel generic. Users wanted a buddy that remembers their story and helps them understand patterns in mood and habits.",
@@ -196,7 +196,7 @@ export const caseStudies = [
       "Privacy-first design with guidance that feels personal",
     ],
     result: "Live on the App Store with growing ratings",
-    rating: "Owned Product Lab",
+    rating: "TRBO consumer app",
     icon: "/felt/felt-image.webp",
     appStore: "https://apps.apple.com/us/app/felt-ai-journal-buddy/id6469459271",
     playStore: undefined,
@@ -208,38 +208,66 @@ export const founderSection = {
   label: "Leadership",
   title: "Built by operators, not consultants",
   description:
-    "TRBO is led by people who build, ship, and scale consumer apps every day. Follow founder Mostafa on LinkedIn or X (@mostafawmg).",
+    "TRBO is led by operators who build, ship, and scale real products. Our founder combines AI infrastructure experience at Microsoft with hands-on mobile publishing, UA, creative testing, and product analytics across consumer apps and games. Follow Mostafa on LinkedIn or X (@mostafawmg).",
   bullets: [
-    "AI Engineer at Microsoft focused on distributed systems, AI infrastructure, and agents",
-    "Mobile apps and games portfolio with 2M+ downloads across 16+ apps",
-    "Hands-on UA, creative testing, analytics, and publishing partnerships",
+    "AI Engineer at Microsoft | distributed systems, AI infrastructure, and agents",
+    "Portfolio with 2M+ downloads across 16+ apps",
+    "Hands-on UA, creative testing, analytics, and publishing collaborations",
   ],
 };
+
+export const productProof = [
+  {
+    name: "Felt",
+    tagline: "AI journal that learns you",
+    proof: "TRBO-owned consumer app with Mentora personalization, mood tracking, and voice or text journaling on the App Store.",
+  },
+  {
+    name: "City Connect",
+    tagline: "Self-published distribution",
+    proof: "TRBO self-published the title, ran UA and ASO tests, and grew the game to its first 100K users.",
+  },
+  {
+    name: "Supercent titles",
+    tagline: "Partner publishing at scale",
+    proof: "My Beach Resort and Beach Hotel Simulator 3D were developed by TRBO and published with Supercent at 500K+ installs each.",
+  },
+  {
+    name: "TRBO Growth Engine",
+    tagline: "How we operate",
+    proof: "Internal tooling for market radar, creative testing, UA experiments, store optimization, and operator review on every publish decision.",
+  },
+];
 
 export const faqs = [
   {
     question: "What types of apps does TRBO accept?",
     answer:
-      "We focus on consumer apps and games with clear category fit, a playable or live build, and signals that the product can scale with the right publishing and growth support. Submit your app with stage, links, and any metrics you have. We review every submission against our bar.",
+      "Consumer apps and mobile games with clear category fit, a playable or live build, and a credible path to test and scale. Share your stage, links, and any traction you are comfortable providing. We review every submission against our bar.",
   },
   {
-    question: "Do you invest in UA?",
+    question: "Do you invest in user acquisition?",
     answer:
-      "Yes. For accepted apps we run structured UA experiments and hybrid paid plus organic growth. We invest our own capital in user acquisition when the product and partnership model fit.",
+      "For selected apps, yes. We run structured UA experiments and hybrid paid plus organic growth, and we may invest our own capital when the product and partnership model fit.",
   },
   {
     question: "Do you work on revenue share?",
     answer:
-      "Yes. Qualified apps that pass our publisher test can move to a publishing agreement, often on a revenue-share basis. Tell us on the submit form if you are open to that model.",
+      "Yes, depending on the app, stage, and scope. Qualified apps that pass our publisher test can move to a publishing agreement, often on a revenue-share basis.",
   },
   {
-    question: "Do you co-develop apps?",
+    question: "Do you only publish games?",
     answer:
-      "Yes. We co-develop with partners like Supercent, Voodoo, and Homa, and we also build and publish our own titles. The right path depends on your app, stage, and goals.",
+      "No. We publish and grow consumer apps and games. Felt is our AI journal app, and our portfolio includes simulation and strategy titles with partners such as Supercent, Voodoo, and Homa.",
   },
   {
-    question: "How long does the publisher test take?",
+    question: "Do you co-develop or publish with partners?",
     answer:
-      "Initial assessment typically takes 1 to 2 weeks. Accepted apps enter a publisher test before a full agreement. Timelines after that depend on app readiness and scope.",
+      "Yes. We develop and publish our own titles and work with leading mobile publishers through collaborations that fit the app, including experience with Supercent, Voodoo, and Homa.",
+  },
+  {
+    question: "How long does review take?",
+    answer:
+      "We typically respond within 3 to 7 business days after you submit. Accepted apps may enter a publisher test before a full publishing agreement.",
   },
 ];

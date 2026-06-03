@@ -29,16 +29,15 @@ export const siteConfig = {
     revenue: "$1M+",
   },
   partners: ["Supercent", "Voodoo", "Homa"] as const,
-  partnerHighlight: "Publisher network: Supercent, Voodoo, and Homa",
+  partnerHighlight:
+    "Publishing collaborations and partner experience with Supercent, Voodoo, and Homa",
 };
 
 export const navLinks = [
-  { href: "/#services", label: "Services" },
-  { href: "/#case-studies", label: "Results" },
-  { href: "/#apps", label: "Apps" },
-  { href: "/felt", label: "Felt" },
-  { href: "/blog", label: "Blog" },
   { href: "/publish", label: "Submit App" },
+  { href: "/#case-studies", label: "Results" },
+  { href: "/#growth-engine", label: "Growth Engine" },
+  { href: "/#apps", label: "Portfolio" },
   { href: "/contact", label: "Partner" },
 ] as const;
 

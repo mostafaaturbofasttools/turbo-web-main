@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button-link";
 import { HorizontalScrollItem, HorizontalScrollRow } from "@/components/ui/horizontal-scroll";
-import { FaqSectionLoader } from "@/components/lazy/faq-section-loader";
+import { FaqSection } from "@/components/faq-section";
 import { PublishFormSectionLoader } from "@/components/lazy/publish-form-section-loader";
 import { GameCard, GameShowcaseRow, SectionHeading } from "@/components/game-card";
 import { FeltHeroPhone } from "@/components/phone-mockup";
@@ -16,10 +16,11 @@ import {
   marketingTools,
   marketingToolsSection,
   processSteps,
+  productProof,
   services,
   whyTrbo,
 } from "@/lib/content";
-import { felt, feltReviews } from "@/lib/felt";
+import { felt } from "@/lib/felt";
 import { moreAppsGames, partnerShowcaseGames, primaryShowcaseGames } from "@/lib/games";
 import { getBlogPosts } from "@/lib/content-loader";
 import { siteConfig } from "@/lib/site";
@@ -92,7 +93,7 @@ export default function HomePage() {
             {siteConfig.descriptor}
           </p>
           <p className="mt-4 inline-flex rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
-            {siteConfig.name} · Est. 2021
+            {siteConfig.name} · 2022
           </p>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted">
             {siteConfig.heroSubline}
@@ -190,32 +191,14 @@ export default function HomePage() {
               <HorizontalScrollItem key={cs.slug} width="wide">
               <article className="flex h-full min-h-[28rem] flex-col rounded-2xl border border-border bg-card/70 p-6">
                 <div className="flex items-start gap-4">
-                  {"icons" in cs && cs.icons ? (
-                    <div className="flex shrink-0 items-center">
-                      {cs.icons.map((icon, i) => (
-                        <Image
-                          key={icon}
-                          src={icon}
-                          alt={`${cs.name} app icon ${i + 1}`}
-                          width={64}
-                          height={64}
-                          sizes="64px"
-                          className={`rounded-xl shadow-lg ring-2 ring-card ${
-                            i > 0 ? "-ml-5" : ""
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  ) : (
-                    <Image
-                      src={cs.icon}
-                      alt={cs.name}
-                      width={64}
-                      height={64}
-                      sizes="64px"
-                      className="rounded-xl shadow-lg"
-                    />
-                  )}
+                  <Image
+                    src={cs.icon}
+                    alt={cs.name}
+                    width={64}
+                    height={64}
+                    sizes="64px"
+                    className="rounded-xl shadow-lg"
+                  />
                   <div className="min-w-0">
                     <p className="text-xs font-bold uppercase text-accent">{cs.partner}</p>
                     <h3 className="mt-1 text-xl font-bold">{cs.name}</h3>
@@ -510,16 +493,19 @@ export default function HomePage() {
 
       <section className="border-y border-border bg-surface/20 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-6xl">
-          <SectionHeading label="Reviews" title="What users say about Felt" />
+          <SectionHeading
+            label="Proof"
+            title="What our apps prove"
+            description="Real products and publishing outcomes behind TRBO, not just positioning slides."
+          />
           <HorizontalScrollRow className="mt-12">
-            {feltReviews.map((r) => (
-              <HorizontalScrollItem key={r.author}>
-                <blockquote className="h-full rounded-2xl border border-border bg-card/60 p-6">
-                  <p className="text-sm text-accent">{"★".repeat(r.rating)}</p>
-                  <p className="mt-2 font-semibold">{r.title}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">{r.body}</p>
-                  <footer className="mt-4 text-xs text-muted">{r.author}</footer>
-                </blockquote>
+            {productProof.map((item) => (
+              <HorizontalScrollItem key={item.name}>
+                <article className="h-full rounded-2xl border border-border bg-card/60 p-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">{item.name}</p>
+                  <h3 className="mt-2 text-lg font-bold">{item.tagline}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">{item.proof}</p>
+                </article>
               </HorizontalScrollItem>
             ))}
           </HorizontalScrollRow>
@@ -580,7 +566,7 @@ export default function HomePage() {
       <section className="border-t border-border bg-surface/20 px-4 py-20 sm:px-6">
         <div className="mx-auto max-w-3xl">
           <SectionHeading label="FAQ" title="Common questions" />
-          <FaqSectionLoader />
+          <FaqSection />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{

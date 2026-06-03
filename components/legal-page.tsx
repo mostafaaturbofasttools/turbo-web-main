@@ -15,6 +15,16 @@ export function generateLegalMetadata(slug: string, fallback: string): Metadata 
   });
 }
 
+function formatLegalDate(iso: string) {
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return iso;
+  return date.toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+
 export function LegalPage({ slug }: { slug: string }) {
   const doc = getLegalDoc(slug);
   if (!doc) notFound();
@@ -22,7 +32,9 @@ export function LegalPage({ slug }: { slug: string }) {
   return (
     <article className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
       <h1 className="text-3xl font-bold tracking-tight">{doc.title}</h1>
-      {doc.updated ? <p className="mt-2 text-sm text-muted">Last updated {doc.updated}</p> : null}
+      {doc.updated ? (
+        <p className="mt-2 text-sm text-muted">Last updated {formatLegalDate(doc.updated)}</p>
+      ) : null}
       <MarkdownContent content={doc.content} className="prose-legal mt-8" />
     </article>
   );

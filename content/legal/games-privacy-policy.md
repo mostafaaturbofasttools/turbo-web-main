@@ -1,11 +1,9 @@
 ---
 title: Games Privacy Policy
-updated: 2024-08-19
+updated: 2026-06-02
 ---
 
 # Privacy Policy
-
-## Last updated August 19, 2024
 
 Thank you for choosing to be part of our community at TRBO FAST TOOLS INC. (&quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice or our practices with regards to your personal information, please contact us at info@turbofasttools.com
 
